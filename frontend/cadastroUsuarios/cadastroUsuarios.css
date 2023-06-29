@@ -1,0 +1,44 @@
+.divTitulo{
+    text-align: center;
+}
+
+.h1TituloCadastroDeUsuario{
+    position:relative;
+    top:18vh;
+}
+
+.divInputCadastroUsuarios{
+    text-align: center;
+}
+
+.inputUsuarioCadastroUsuario{
+    position:relative;
+    top:25vh;
+    width:15vw;
+    height:4vh;
+    font-size:calc(1vh + 1vw)
+}
+
+.inputSenhaCadastroUsuario{
+    position:relative;
+    top:30vh;
+    width:15vw;
+    height:4vh;
+    font-size:calc(1vh + 1vw)
+}
+
+.SelectTipoCadastroUsuario{
+    position:relative;
+    top:35vh;
+    width:15vw;
+    height:4vh;
+    font-size:calc(1vh + 1vw)
+}
+
+.ButtonCadastroUsuario{
+    position:relative;
+    top:41vh;
+    width:12vw;
+    height:4vh;
+    font-size:calc(1vh + 1vw)
+}

@@ -1,0 +1,18 @@
+.divH2CadEditDelet{
+    text-align: center;
+    position:relative;
+    top:30vh;
+}
+
+.LinkUsuarioCadastraEditaDeleta{
+    font-size: calc(1vw + 1vh);
+    position:relative;
+    left:5vw;
+}
+
+.spanUsuarioCadastraEditaDeleta{
+    position:relative;
+    font-size:calc(1vw + 1vh);
+    float:right;
+    right:3vw;
+}

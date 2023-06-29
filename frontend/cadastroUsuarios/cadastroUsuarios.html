@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./cadastroUsuarios.css" />
+    </head>
+    <body>
+        <div>
+          <div><a href="../loginUsuarios/loginUsuarios.html"> Login</a> | <a href="../cadastrarEditarDeletar/cadastrarEditarDeletar.html">Gerenciamento de colaboradores</a></div>
+            <div class='divTitulo'>
+              <h1 class='h1TituloCadastroDeUsuario'>Cadastro de usuário</h1>
+            </div>
+      
+            <div class='divInputCadastroUsuarios'>
+              <input
+                class='inputUsuarioCadastroUsuario'
+                type='text'
+                placeholder='Usuário'
+              />
+      
+              <br />
+      
+              <input
+                class='inputSenhaCadastroUsuario'
+                type='password'
+                placeholder='Senha'
+              />
+      
+              <br />
+              <select class='SelectTipoCadastroUsuario'>
+                <option value='0'>comum</option>
+                <option value='1'>master</option>
+              </select>
+              <br></br>
+              <button class='ButtonCadastroUsuario' onClick=requisicaoAxiosCadastroDeUsuarios()>Cadastrar</button>
+            </div>
+          </div>
+
+          <script src="./cadastroUsuarios.js"></script>
+          <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </body>
+</html>

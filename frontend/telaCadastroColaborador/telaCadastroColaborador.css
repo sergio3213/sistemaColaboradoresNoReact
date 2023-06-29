@@ -1,0 +1,37 @@
+.divH1{text-align: center;
+    position:relative;
+    top:15vh;
+    }
+.divInputs{
+    position:relative;
+    top:20vh;
+    text-align: center;
+    position:relative;
+
+}
+
+.inputFile{}
+
+.inputNome{
+    width:20vw;
+    height:3.7vh;
+    font-size:calc(1vw + 1vh)
+}
+
+.inputRg{
+    width:20vw;
+    height:3.7vh;
+    font-size:calc(1vw + 1vh)
+}
+
+.inputCpf{
+    width:20vw;
+    height:3.7vh;
+    font-size:calc(1vw + 1vh)
+}
+
+.inputSpjAnoDp{
+    width:20vw;
+    height:3.7vh;
+    font-size:calc(1vw + 1vh)
+}
