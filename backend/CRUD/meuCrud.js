@@ -42,8 +42,15 @@ class meuCrud {
     
     const ultimoId = arrayUltimoId[0][0].id
     await esperaConexao.execute(
-      `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId}.jpg')`
+      `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId+1}.jpg')`
     )
+  }
+
+  async buscaIdUltimoColaborador() {
+    const esperaConexao = await this.conexao()
+    const arrayUltimoId = await esperaConexao.execute('SELECT * FROM colaboradores ORDER BY id DESC LIMIT 1;');
+    return arrayUltimoId[0][0].id
+
   }
 
 }

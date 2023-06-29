@@ -6,10 +6,12 @@ async function controllerCadastrarColaborador(req, res) {
     console.log(req.body.nome)
     const arquivo = req.file
     const caminhoTemporario = arquivo.path
-    const caminhoDestino = './' + arquivo.originalname;
     const crud = new meuCrud();
-     
-    const a = await fs.rename(caminhoTemporario,caminhoDestino, async(erro)=>{
+     const idUltimoColaborador = await crud.buscaIdUltimoColaborador()
+     console.log(req.file.originalname)
+     const caminhoDestino = './' + "imgsyst" + (idUltimoColaborador+1) + ".png";
+     console.log(caminhoDestino)
+     const a = await fs.rename(caminhoTemporario,caminhoDestino, async(erro)=>{
         if (erro) {
             res.status(500).send('Erro ao salvar a imagem.');
           } else {
