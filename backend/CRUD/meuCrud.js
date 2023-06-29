@@ -35,6 +35,17 @@ class meuCrud {
     );
       return(usuariosPorUsuarioEsenha[0])
   }
+
+  async cadastrarColaborador(nome,rg,cpf,spjanodp) {
+    const esperaConexao = await this.conexao()
+    const arrayUltimoId = await esperaConexao.execute('SELECT * FROM colaboradores ORDER BY id DESC LIMIT 1;');
+    
+    const ultimoId = arrayUltimoId[0][0].id
+    await esperaConexao.execute(
+      `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId}.jpg')`
+    )
+  }
+
 }
 
 export default meuCrud;
