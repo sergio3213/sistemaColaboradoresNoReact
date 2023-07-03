@@ -2,14 +2,14 @@ const mysql = require("mysql2/promise");
 
 class meuCrud {
     conexao = async () => { return mysql.createConnection({
-      /* host: "mysql.sergiomelobackend.com.br",
+      host: "mysql.sergiomelobackend.com.br",
       user: "sergiomelo_add1", 
       password: "senhabd12", 
-      database: "sergiomeloback", */
-      host: "localhost",
+      database: "sergiomeloback",
+      /* host: "localhost",
       user: "root", 
       password: "$ENHAfraca12", 
-      database: "sistema_de_colaboradores", 
+      database: "sistema_de_colaboradores", */ 
     });
   }
   
@@ -77,6 +77,13 @@ class meuCrud {
     const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where nome = '${nome}';`);
 
     return colaboradores[0];
+  }
+
+  async editaColaborador(nome,rg,cpf,spjanodp,id){
+    const esperaConexao = await this.conexao()
+    const editaColaborar = await esperaConexao.execute(`UPDATE colaboradores SET nome = '${nome}', rg = '${rg}', cpf = '${cpf}', spjanodp='${spjanodp}' WHERE id = ${id}`);
+
+    return editaColaborar
   }
 }
 

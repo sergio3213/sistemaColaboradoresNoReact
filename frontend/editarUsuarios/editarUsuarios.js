@@ -4,7 +4,7 @@ function handleButtonPesquisar() {
   
     if (selectPesquisar === 'Nome') {
       axios
-        .get(`http://localhost:21009/colaboradoresPorNome?nome=${inputPesquisar}`)
+        .get(`http://sergiomelobackend.com.br:21009/colaboradoresPorNome?nome=${inputPesquisar}`)
         .then((data) => {
           
           const divColaboradores = document.querySelector('.divColaboradores');
@@ -26,6 +26,7 @@ function handleButtonPesquisar() {
                  arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
               );
            }
+
             const dataUrl = `data:image/jpg;base64,${toBase64( data.imageBuffer.data)}`;
             elementImagem.src=dataUrl
             elementImagem.style.width='25vh'
@@ -34,6 +35,10 @@ function handleButtonPesquisar() {
             divColaboradores.appendChild(elementImagem)
             
             
+            const elementEnviaImagem = document.createElement('input');
+            elementEnviaImagem.type="file";
+            divColaboradores.appendChild(elementEnviaImagem)
+
             const elementNome = document.createElement('input');
             elementNome.type = 'text';
             elementNome.value = data.nome;
@@ -57,12 +62,14 @@ function handleButtonPesquisar() {
 
             function handleButonSalvar(){
               const dadosAtualizados = {
+                id:data.id,
                 nome: elementNome.value,
                 rg: elementRg.value,
                 cpf: elementCpf.value,
                 spjanodp: elementspjanodp.value
               }
-              axios.put("http://localhost:21009/editaColaborador",dadosAtualizados).then((data)=>console.log(data))
+
+              axios.put("http://sergiomelobackend.com.br:21009/editaColaborador",dadosAtualizados).then((data)=>console.log(data))
               alert("teste")
             }
 

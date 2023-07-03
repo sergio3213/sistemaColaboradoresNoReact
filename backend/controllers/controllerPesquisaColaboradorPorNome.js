@@ -8,7 +8,7 @@ async function controllerPesquisaColaboradorPorNome(req, res) {
         const imagePath = "./img/" + elem.img
         
         const imageBuffer = fs.readFileSync(imagePath);
-        console.log(colaboradores)
+        
         return({
             id:elem.id,
             nome:elem.nome,

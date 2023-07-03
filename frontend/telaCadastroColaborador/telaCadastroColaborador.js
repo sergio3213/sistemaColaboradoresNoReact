@@ -24,7 +24,7 @@ Object.entries(objCredenciais).forEach(([key, value]) => {
 });
 
 console.log(formData)
-axios.post("http://localhost:21009/cadastrarColaborador",formData/* {
+axios.post("http://sergiomelobackend.com.br:21009/cadastrarColaborador",formData/* {
     formData:formData,
     nome:constNome,
     rg:constRg,
