@@ -1,7 +1,7 @@
-import app from './app.js'
+const app = require('./app.js')
 
 
-app.listen(3001,'0.0.0.0', async()=>{
-    console.log(`Escutando na porta 3001`);
+app.listen(21009,'0.0.0.0', async()=>{
+    console.log(`Escutando na porta 21009`);
      
 })

@@ -1,5 +1,5 @@
-import meuCrud from "../CRUD/meuCrud.js";
-import jwt from "jsonwebtoken";
+const meuCrud = require("../CRUD/meuCrud.js");
+const jwt = require("jsonwebtoken");
 
 const secretPasswordJwt = "senhaFortissima319";
 
@@ -38,4 +38,4 @@ async function controllerLogin(req, res) {
     res.status(200).json(token)
 }
 
-export default controllerLogin;
+module.exports = controllerLogin;

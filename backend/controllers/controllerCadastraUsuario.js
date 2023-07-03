@@ -1,4 +1,4 @@
-import meuCrud from "../CRUD/meuCrud.js";
+const meuCrud = require("../CRUD/meuCrud.js");
 
 async function controllerCadastraUsuarios(req, res) {
   const crud = new meuCrud();
@@ -42,4 +42,4 @@ async function controllerCadastraUsuarios(req, res) {
 
   res.status(200).json(userCadastrado);
 }
-export default controllerCadastraUsuarios;
+module.exports = controllerCadastraUsuarios;

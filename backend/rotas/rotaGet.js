@@ -1,7 +1,11 @@
-import express from "express";
+const express = require("express");
 const routerGet = express.Router();
-import controllerLogin from "../controllers/controllerLogin.js";
+
+const controllerLogin = require("../controllers/controllerLogin.js");
+const controllerPesquisaColaboradorPorNome = require("../controllers/controllerPesquisaColaboradorPorNome.js")
+
 routerGet.get("/login", controllerLogin);
+routerGet.get("/colaboradoresPorNome", controllerPesquisaColaboradorPorNome);
 
 
-export default routerGet
+module.exports = routerGet

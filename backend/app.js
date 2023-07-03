@@ -1,18 +1,20 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import routerGet from "./rotas/rotaGet.js";
-import routerPost from "./rotas/rotaPost.js";
-
+const express = require('express')
+const bodyParser = require('body-parser')
+const routerGet = require("./rotas/rotaGet.js");
+const routerPost = require("./rotas/rotaPost.js");
+const routerPut = require("./rotas/rotaPut.js")
 const app = express();
 
 app.use(bodyParser.json())
 app.use((_req,res,next)=>{
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   next()
 })
 
  app.use(routerGet)
 app.use(routerPost)
+app.use(routerPut)
  
-export default app
+module.exports = app

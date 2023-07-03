@@ -1,11 +1,15 @@
-import mysql from "mysql2/promise";
+const mysql = require("mysql2/promise");
 
 class meuCrud {
     conexao = async () => { return mysql.createConnection({
-      host: "localhost", // Host do banco de dados
-      user: "root", // Usuário do banco de dados
-      password: "$ENHAfraca12", // Senha do banco de dados
-      database: "sistema_de_colaboradores", // Nome do banco de dados
+      /* host: "mysql.sergiomelobackend.com.br",
+      user: "sergiomelo_add1", 
+      password: "senhabd12", 
+      database: "sergiomeloback", */
+      host: "localhost",
+      user: "root", 
+      password: "$ENHAfraca12", 
+      database: "sistema_de_colaboradores", 
     });
   }
   
@@ -40,19 +44,40 @@ class meuCrud {
     const esperaConexao = await this.conexao()
     const arrayUltimoId = await esperaConexao.execute('SELECT * FROM colaboradores ORDER BY id DESC LIMIT 1;');
     
-    const ultimoId = arrayUltimoId[0][0].id
-    await esperaConexao.execute(
-      `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId+1}.jpg')`
-    )
+    try{
+      const ultimoId = arrayUltimoId[0][0].id
+      await esperaConexao.execute(
+        `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId+1}.jpg')`
+      )
+
+    }
+      catch(err){
+        const ultimoId = 0
+        await esperaConexao.execute(
+          `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId+1}.jpg')`
+        )
+  
+      }
+          
   }
 
   async buscaIdUltimoColaborador() {
     const esperaConexao = await this.conexao()
     const arrayUltimoId = await esperaConexao.execute('SELECT * FROM colaboradores ORDER BY id DESC LIMIT 1;');
-    return arrayUltimoId[0][0].id
-
+    try{
+      return arrayUltimoId[0][0].id
+    }
+    catch(err){
+      return(0)
+    }
   }
 
+  async buscarColabolaboradorPorNome(nome){
+    const esperaConexao = await this.conexao()
+    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where nome = '${nome}';`);
+
+    return colaboradores[0];
+  }
 }
 
-export default meuCrud;
+module.exports = meuCrud;
