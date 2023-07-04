@@ -5,11 +5,12 @@ class meuCrud {
       host: "mysql.sergiomelobackend.com.br",
       user: "sergiomelo_add1", 
       password: "senhabd12", 
-      database: "sergiomeloback",
+      database: "sergiomeloback",  
+
       /* host: "localhost",
       user: "root", 
       password: "$ENHAfraca12", 
-      database: "sistema_de_colaboradores", */ 
+      database: "sistema_de_colaboradores",  */ 
     });
   }
   
@@ -40,14 +41,14 @@ class meuCrud {
       return(usuariosPorUsuarioEsenha[0])
   }
 
-  async cadastrarColaborador(nome,rg,cpf,spjanodp) {
+  async cadastrarColaborador(nome,rg,cpf,spjanodp,ext) {
     const esperaConexao = await this.conexao()
     const arrayUltimoId = await esperaConexao.execute('SELECT * FROM colaboradores ORDER BY id DESC LIMIT 1;');
     
     try{
       const ultimoId = arrayUltimoId[0][0].id
       await esperaConexao.execute(
-        `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId+1}.jpg')`
+        `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${(ultimoId+1)+'.'+ ext}')`
       )
 
     }
@@ -74,14 +75,14 @@ class meuCrud {
 
   async buscarColabolaboradorPorNome(nome){
     const esperaConexao = await this.conexao()
-    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where nome = '${nome}';`);
+    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where nome LIKE '${nome}% ';`);
 
     return colaboradores[0];
   }
 
-  async editaColaborador(nome,rg,cpf,spjanodp,id){
+  async editaColaborador(nome,rg,cpf,spjanodp,imagem,id){
     const esperaConexao = await this.conexao()
-    const editaColaborar = await esperaConexao.execute(`UPDATE colaboradores SET nome = '${nome}', rg = '${rg}', cpf = '${cpf}', spjanodp='${spjanodp}' WHERE id = ${id}`);
+    const editaColaborar = await esperaConexao.execute(`UPDATE colaboradores SET nome = '${nome}', rg = '${rg}', cpf = '${cpf}', spjanodp='${spjanodp}', img='${imagem}' WHERE id = ${id}`);
 
     return editaColaborar
   }

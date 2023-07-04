@@ -4,6 +4,7 @@ const routerGet = require("./rotas/rotaGet.js");
 const routerPost = require("./rotas/rotaPost.js");
 const routerPut = require("./rotas/rotaPut.js")
 const app = express();
+const multer = require('multer');
 
 app.use(bodyParser.json())
 app.use((_req,res,next)=>{

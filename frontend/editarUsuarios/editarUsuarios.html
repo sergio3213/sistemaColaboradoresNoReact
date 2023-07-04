@@ -1,25 +1,35 @@
 <html>
     <head>
-
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="editarUsuarios.css">
     </head>
 
     <body>
-        <h1>
-            Editar Usuários
-        </h1>
+        <div style="text-align: center;">
+            <h1>
+                Editar Usuários
+            </h1>
 
-        <input type="text" class="inputPesquisar" placeholder="Pesquisar Usuário...">
-        <select class="selectPesquisar">
-            <option>Nome</option>
-            <option>Rg</option>
-            <option>Cpf</option>
-        </select>
+        </div>
+        <div class="divPesquisarUsuarios">
+            <input type="text" class="inputPesquisar" placeholder="Pesquisar Usuário...">
+            <br/>
+            <br/>
+            <select class="selectPesquisar">
+                <option>Nome</option>
+                <option>Rg</option>
+                <option>Cpf</option>
+            </select>
 
+            <br/>
+            <br/>
+            
+            <button onClick="handleButtonPesquisar()" class="buttonPesquisar">Pesquisar</button>
+            <br/>
+            
+        </div>
         <br/>
-        <button onClick="handleButtonPesquisar()">Pesquisar</button>
-        <br/>
-        <br/>
-        <br/>
+        <hr>
 
         <div class="divColaboradores">
 

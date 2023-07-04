@@ -1,0 +1,22 @@
+.divPesquisarUsuarios{text-align: center;}
+
+.inputPesquisar{
+    width:30vw;
+    height:4vh;
+    font-size:calc(1vh + 1vw)
+}
+
+.selectPesquisar{
+    width:12vw;
+    height:3.5vh;
+    font-size:calc(1vw + 1vh);
+    color: gray;
+}
+
+.buttonPesquisar{
+    width:10vw;
+    height:5vh;
+    font-size:calc(1vw + 1vh);
+}
+
+.divColaboradores{text-align: center;}

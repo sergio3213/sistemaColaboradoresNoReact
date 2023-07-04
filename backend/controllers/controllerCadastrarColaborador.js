@@ -24,18 +24,18 @@
       }
       
       const arquivo = req.file
+      console.log('mmmmm',arquivo)
       const caminhoTemporario = arquivo.path
-      console.log(";;;;",arquivo)
       const crud = new meuCrud();
       const idUltimoColaborador = await crud.buscaIdUltimoColaborador()
       console.log(req.file.originalname)
       const caminhoDestino = './img/' + "imgsyst" + (idUltimoColaborador+1) +'.'+ arquivo.mimetype.slice(-3)
       console.log(caminhoDestino)
-      const a = await fs.rename(caminhoTemporario,caminhoDestino, async(erro)=>{
+      const arquivoCriacao = await fs.rename(caminhoTemporario,caminhoDestino, async(erro)=>{
           if (erro) {
               return res.status(500).send('Erro ao salvar a imagem.');
             } else {
-              await crud.cadastrarColaborador(req.body.nome,req.body.rg,req.body.cpf,req.body.spjAnoDp)
+              await crud.cadastrarColaborador(req.body.nome,req.body.rg,req.body.cpf,req.body.spjAnoDp,arquivo.mimetype.slice(-3))
               return res.status(200).json({message:"funcio"})
             }
       })
