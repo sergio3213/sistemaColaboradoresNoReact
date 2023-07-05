@@ -2,15 +2,15 @@ const mysql = require("mysql2/promise");
 
 class meuCrud {
     conexao = async () => { return mysql.createConnection({
-      host: "mysql.sergiomelobackend.com.br",
+      /* host: "mysql.sergiomelobackend.com.br",
       user: "sergiomelo_add1", 
       password: "senhabd12", 
-      database: "sergiomeloback",  
-
-      /* host: "localhost",
+      database: "sergiomeloback", 
+ */
+      host: "localhost",
       user: "root", 
       password: "$ENHAfraca12", 
-      database: "sistema_de_colaboradores",  */ 
+      database: "sistema_de_colaboradores", 
     });
   }
   
@@ -75,17 +75,31 @@ class meuCrud {
 
   async buscarColabolaboradorPorNome(nome){
     const esperaConexao = await this.conexao()
-    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where nome LIKE '${nome}% ';`);
-
+    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where nome LIKE '${nome}%' COLLATE utf8_general_ci;`);
     return colaboradores[0];
   }
 
   async editaColaborador(nome,rg,cpf,spjanodp,imagem,id){
     const esperaConexao = await this.conexao()
     const editaColaborar = await esperaConexao.execute(`UPDATE colaboradores SET nome = '${nome}', rg = '${rg}', cpf = '${cpf}', spjanodp='${spjanodp}', img='${imagem}' WHERE id = ${id}`);
-
+    
     return editaColaborar
   }
+
+  async editaColaboradorSemImagem(nome,rg,cpf,spjanodp,id){
+    const esperaConexao = await this.conexao()
+    const editaColaborar = await esperaConexao.execute(`UPDATE colaboradores SET nome = '${nome}', rg = '${rg}', cpf = '${cpf}', spjanodp='${spjanodp}' WHERE id = ${id}`); 
+    return editaColaborar
+  }
+
+  async buscarColabolaboradorPorRg(rg){
+    const esperaConexao = await this.conexao()
+    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where rg LIKE '${rg}' COLLATE utf8mb4_general_ci;`);
+    return colaboradores[0];
+  }
 }
+
+
+
 
 module.exports = meuCrud;

@@ -1,9 +1,9 @@
 const meuCrud = require('../CRUD/meuCrud.js')
 const fs = require('fs')
-async function controllerPesquisaColaboradorPorNome(req, res) {
+async function controllerPesquisaColaboradorPorRg(req, res) {
     const crud = new meuCrud()
     
-    const colaboradores = await crud.buscarColabolaboradorPorNome(req.query.nome)
+    const colaboradores = await crud.buscarColabolaboradorPorRg(req.query.rg)
     
     const colaboradoresMap = await colaboradores.map((elem)=>{
         const imagePath = "./img/" + elem.img
@@ -25,4 +25,4 @@ async function controllerPesquisaColaboradorPorNome(req, res) {
     
 }
 
-module.exports = controllerPesquisaColaboradorPorNome
+module.exports = controllerPesquisaColaboradorPorRg
