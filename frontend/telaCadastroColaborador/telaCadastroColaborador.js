@@ -1,12 +1,12 @@
 
-async function handleButtonCadastrar(){
+function handleButtonCadastrar(event){
 
-alert("funciona")
+event.preventDefault();
 
-const formData = await new FormData();
+const formData = new FormData();
 const inputArquivoDeImagem = document.querySelector('.inputFile')
 const arquivoDeImagem = inputArquivoDeImagem.files[0]
-await formData.append('imagem', arquivoDeImagem);
+formData.append('imagem', arquivoDeImagem);
 const constNome = document.querySelector('.inputNome').value;
 const constRg = document.querySelector('.inputRg').value;
 const constCpf = document.querySelector('.inputCpf').value;
@@ -24,7 +24,9 @@ Object.entries(objCredenciais).forEach(([key, value]) => {
 });
 
 console.log(formData)
-axios.post("http://sergiomelobackend.com.br:21009/cadastrarColaborador",formData/* {
+
+axios.post("http://localhost:21009/cadastrarColaborador",formData/* {
+   
     formData:formData,
     nome:constNome,
     rg:constRg,
@@ -33,10 +35,17 @@ axios.post("http://sergiomelobackend.com.br:21009/cadastrarColaborador",formData
 } */)
     .then(function (response) {
         // Manipule a resposta
-        console.log(response);
+        debugger
+        alert(response.data.message);
+        
       })
       .catch(function (error) {
+        debugger
         // Manipule os erros
-        console.error(error);
+        console.log(error)
+        alert(error.response.data.message);
       });
 }
+
+const form = document.getElementById('cadastroForm');
+form.addEventListener('submit', handleButtonCadastrar);

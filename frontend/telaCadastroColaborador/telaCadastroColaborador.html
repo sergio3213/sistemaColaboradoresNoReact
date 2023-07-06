@@ -1,33 +1,37 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="./telaCadastroColaborador.css">
-    </head>
-    <body>
-        <div class="divH1">
-            <h1>
-                Cadastro de colaborador
-            </h1>
-        </div>
-        <div class="divInputs">
-            <input type="file" class="inputFile">
-            <br/>
-            <br/>
+  <head>
+    <link rel="stylesheet" href="./telaCadastroColaborador.css" />
+  </head>
+  <body>
+    <div class="divH1">
+      <h1>Cadastro de colaborador</h1>
+    </div>
+    <div class="divInputs">
+      <form id="cadastroForm">
+        <input type="file" class="inputFile" />
+        <br />
+        <br />
 
-            <input type="text" class="inputNome" placeholder="Nome completo">
-            <br/>
-            <br/>
-            <input type="text" class="inputRg" placeholder="Rg(somente números)">
-            <br/>
-            <br/>
-            <input type="text" class="inputCpf" placeholder="Cpf(somente números)">
-            <br/>
-            <br/>
-            <input type="text" class="inputSpjAnoDp" placeholder="spj/ano/dp">
-            <br/>
-            <br/>
-            <button class="inputSpjAnoDp" onClick="handleButtonCadastrar()">Cadastrar</button>
-        </div>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="./telaCadastroColaborador.js"></script>
-    </body>
+        <input type="text" class="inputNome" placeholder="Nome completo" />
+        <br />
+        <br />
+        <input type="text" class="inputRg" placeholder="Rg(somente números)" />
+        <br />
+        <br />
+        <input
+          type="text"
+          class="inputCpf"
+          placeholder="Cpf(somente números)"
+        />
+        <br />
+        <br />
+        <input type="text" class="inputSpjAnoDp" placeholder="spj/ano/dp" />
+        <br />
+        <br />
+        <button class="buttonCadastrar" type="submit">Cadastrar</button>
+      </form>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./telaCadastroColaborador.js"></script>
+  </body>
 </html>

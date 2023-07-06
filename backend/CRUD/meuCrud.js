@@ -97,6 +97,12 @@ class meuCrud {
     const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where rg LIKE '${rg}' COLLATE utf8mb4_general_ci;`);
     return colaboradores[0];
   }
+
+  async buscarColabolaboradorPorCpf(cpf){
+    const esperaConexao = await this.conexao()
+    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where cpf LIKE '${cpf}' COLLATE utf8mb4_general_ci;`);
+    return colaboradores[0];
+  }
 }
 
 
