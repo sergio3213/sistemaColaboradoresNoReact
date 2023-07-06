@@ -3,9 +3,9 @@ const meuCrud = require("../CRUD/meuCrud.js");
 async function controllerCadastraUsuarios(req, res) {
   const crud = new meuCrud();
   const regexUsuario = /^[a-zA-Z0-9_]{4,30}$/;
-  const regexSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}$/;
+  const regexSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S^'"]{8,}$/;
 
-
+  
   const buscarUsuarioPorUsuario = await crud.buscarUsuarioPorUsuario(req.body.usuario);
     if(buscarUsuarioPorUsuario.length!==0){
       return res.status(400).json({message:"Esse usuário já foi cadastrado, use outro nome."})
@@ -27,7 +27,9 @@ async function controllerCadastraUsuarios(req, res) {
        Senha deve conter pelo menos uma letra maiúscula
        Senha deve conter pelo menos uma letra minúscula
        Senha deve conter pelo menos um número
-       Senha pode conter caracteres especiais`,
+       Senha pode conter caracteres especiais
+       NÃO são permitidas aspas simples e duplas
+       `,
     });
   }
 

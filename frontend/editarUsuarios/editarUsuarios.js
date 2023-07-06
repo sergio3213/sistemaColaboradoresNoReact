@@ -5,7 +5,7 @@ async function handleButtonPesquisar() {
     if (selectPesquisar === 'Nome') {
       imagemAdicionada.splice(0, imagemAdicionada.length);
       axios
-        .get(`http://sergiomelobackend.com.br:21009/colaboradoresPorNome?nome=${inputPesquisar}`)
+        .get(`http://localhost:21009/colaboradoresPorNome?nome=${inputPesquisar}`)
         .then((data) => {
           if(data.data.length===0){
             alert("Não existe nenhum usuário com esse nome!")
@@ -134,13 +134,13 @@ async function handleButtonPesquisar() {
 
               formData.append('_method', 'PUT');
               
-              axios.put("http://sergiomelobackend.com.br:21009/editaColaborador",
+              axios.put("http://localhost:21009/editaColaborador",
                await formData,
                {headers: {
                 'Content-Type': 'multipart/form-data'
               }}).then((data)=>{
                   alert("Edição salva com sucesso")
-              })
+              }).catch((err)=>{alert(err.response.data.message)})
                 
               }else{
                 const dadosAtualizados = {
@@ -150,13 +150,14 @@ async function handleButtonPesquisar() {
                   cpf: elementCpf.value,
                   spjanodp: elementspjanodp.value,
                 }
-                axios.put("http://sergiomelobackend.com.br:21009/editaColaborador",await dadosAtualizados,
+                axios.put("http://localhost:21009/editaColaborador",await dadosAtualizados,
                 ).then(
                   (data)=>{
                     alert("Edição salva com sucesso")
                   }
                 )
-                .catch((err)=>{alert(err)})
+
+                .catch((err)=>{alert(err.response.data.message)})
               }
 
               
@@ -190,7 +191,7 @@ async function handleButtonPesquisar() {
 
             
           });
-        });
+        }).catch((data)=>console.log(data));
     }
 
 

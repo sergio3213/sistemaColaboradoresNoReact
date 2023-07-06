@@ -6,13 +6,13 @@
       const regexNome = /^(?=[^'"]{1,80}$)[A-Za-zÀ-ÿ]+(?:\s[A-Za-zÀ-ÿ]+)+$/
       const regexRg = /^(?!.*['"])[A-Za-z0-9]{8,10}$/
       const regexCpf = /^(?!.*['"])[0-9]{11}$/
-      const regexSpjAnoDp = /^[a-zA-Z0-9/]{10,20}$/
+      const regexSpjAnoDp = /^[a-zA-Z0-9/]{7,24}$/
       console.log(',,,,,,',req.file)
       if(req.file === undefined){
         return res.status(400).json({message:"Você precisa escolher uma imagem!"})
       }
-      if(req.file.mimetype.slice(-3)!=="jpg" && req.file.mimetype.slice(-3)!=="png" && req.file.mimetype.slice(-3)!=="JPEG" && req.file.mimetype.slice(-3)!=="jpeg" ){
-        return res.status(400).json({message:"Apenas arquivos png,jpg e JPEG são suportados!"})
+      if(req.file.mimetype.slice(-3)!=="jpg" && req.file.mimetype.slice(-3)!=="png" && req.file.mimetype.slice(-4)!=="JPEG" && req.file.mimetype.slice(-4)!=="jpeg" ){
+        return res.status(400).json({message:"Apenas arquivos png, jpg são suportados!"})
       }
       if(!regexNome.test(req.body.nome)){
         return res.status(400).json({message:"O nome tem que ter no minimo um caractere espaço, e só pode ter letras de A-Z ou a-z!"})
@@ -32,7 +32,7 @@
 
       if(!regexSpjAnoDp.test(req.body.spjAnoDp)){
         return res.status(400).json({
-          message: "Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 20 dígitos!)"
+          message: "Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 24 dígitos!)"
         })
       }
       

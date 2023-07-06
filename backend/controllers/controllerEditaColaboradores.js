@@ -3,8 +3,28 @@ const meuCrud = require("../CRUD/meuCrud.js");
 async function controllerEditaColaboradores(req, res) {
   const crud = new meuCrud();
 
+  const regexNome = /^(?=[^'"]{1,80}$)[A-Za-zÀ-ÿ]+(?:\s[A-Za-zÀ-ÿ]+)+$/;
+  const regexRg = /^(?!.*['"])[A-Za-z0-9]{8,10}$/;
+  const regexCpf = /^(?!.*['"])[0-9]{11}$/;
+  const regexSpjAnoDp = /^[a-zA-Z0-9\/]+$/;;
+
   if (req.file === undefined) {
     try {
+      if (!regexNome.test(req.body.nome)) {
+        return res.status(400).json({message:"O nome tem que ter no minimo um caractere espaço, e só pode ter letras de A-Z ou a-z!"})
+      }
+
+      if (!regexRg.test(req.body.rg)) {
+        return res.status(400).json({message:"Rg inválido(Digite apenas números e letras, no maximo 10 dígitos!)"})
+      }
+
+      if (!regexCpf.test(req.body.cpf)) {
+        return res.status(400).json({message:"Cpf inválido(Digite apenas números, 11 dígitos!)"})
+      }
+      if (!regexSpjAnoDp.test(req.body.spjanodp)) {
+        return res.status(400).json({message:"Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 24 dígitos!)"})
+      }
+
       const result = await crud.editaColaboradorSemImagem(
         req.body.nome,
         req.body.rg,
@@ -17,6 +37,24 @@ async function controllerEditaColaboradores(req, res) {
       console.log(err);
     }
   } else {
+    if(req.file.mimetype.slice(-3)!=="png" && req.file.mimetype.slice(-3)!=="jpg" && req.file.mimetype.slice(-4)!=="JPEG" && req.file.mimetype.slice(-4)!=="jpeg"){
+      return res.status(400).json({message:"Só são suportadas imagens .png e .jpg"});
+    }
+    if (!regexNome.test(req.body.nome)) {
+      return res.status(400).json({message:"O nome tem que ter no minimo um caractere espaço, e só pode ter letras de A-Z ou a-z!"})
+    }
+
+    if (!regexRg.test(req.body.rg)) {
+      return res.status(400).json({message:"Rg inválido(Digite apenas números e letras, no maximo 10 dígitos!)"})
+    }
+
+    if (!regexCpf.test(req.body.cpf)) {
+      return res.status(400).json({message:"Cpf inválido(Digite apenas números, 11 dígitos!)"})
+    }
+    if (!regexSpjAnoDp.test(req.body.spjanodp)) {
+      return res.status(400).json({message:"Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 24 dígitos!)"})
+    }
+
     const fs = require("fs");
     const caminhoDoArquivo = `./img/imgsyst${req.body.id}.${req.body.extensao}`;
     console.log("hhh", caminhoDoArquivo);

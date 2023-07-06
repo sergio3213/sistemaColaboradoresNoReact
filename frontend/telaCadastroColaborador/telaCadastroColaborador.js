@@ -1,51 +1,38 @@
+function handleButtonCadastrar(event) {
+  event.preventDefault();
 
-function handleButtonCadastrar(event){
+  const formData = new FormData();
+  const inputArquivoDeImagem = document.querySelector(".inputFile");
+  const arquivoDeImagem = inputArquivoDeImagem.files[0];
+  formData.append("imagem", arquivoDeImagem);
+  const constNome = document.querySelector(".inputNome").value;
+  const constRg = document.querySelector(".inputRg").value;
+  const constCpf = document.querySelector(".inputCpf").value;
+  const constSpjAnoDp = document.querySelector(".inputSpjAnoDp").value;
 
-event.preventDefault();
+  const objCredenciais = {
+    nome: constNome,
+    rg: constRg,
+    cpf: constCpf,
+    spjAnoDp: constSpjAnoDp,
+  };
 
-const formData = new FormData();
-const inputArquivoDeImagem = document.querySelector('.inputFile')
-const arquivoDeImagem = inputArquivoDeImagem.files[0]
-formData.append('imagem', arquivoDeImagem);
-const constNome = document.querySelector('.inputNome').value;
-const constRg = document.querySelector('.inputRg').value;
-const constCpf = document.querySelector('.inputCpf').value;
-const constSpjAnoDp = document.querySelector('.inputSpjAnoDp').value;
-
-const objCredenciais = {
-    nome:constNome,
-    rg:constRg,
-    cpf:constCpf,
-    spjAnoDp:constSpjAnoDp,
-}
-
-Object.entries(objCredenciais).forEach(([key, value]) => {
+  Object.entries(objCredenciais).forEach(([key, value]) => {
     formData.append(key, value);
-});
+  });
 
-console.log(formData)
+  debugger;
 
-axios.post("http://localhost:21009/cadastrarColaborador",formData/* {
-   
-    formData:formData,
-    nome:constNome,
-    rg:constRg,
-    cpf:constCpf,
-    spjAnoDp:constSpjAnoDp,   
-} */)
+  axios
+    .post("http://localhost:21009/cadastrarColaborador", formData)
     .then(function (response) {
-        // Manipule a resposta
-        debugger
-        alert(response.data.message);
-        
-      })
-      .catch(function (error) {
-        debugger
-        // Manipule os erros
-        console.log(error)
-        alert(error.response.data.message);
-      });
+      alert(response.data.message);
+      location.reload();
+    })
+    .catch(function (error) {
+      alert(error.response.data.message);
+    });
 }
 
-const form = document.getElementById('cadastroForm');
-form.addEventListener('submit', handleButtonCadastrar);
+const form = document.getElementById("cadastroForm");
+form.addEventListener("submit", handleButtonCadastrar);

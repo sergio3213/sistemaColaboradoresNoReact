@@ -75,7 +75,7 @@ class meuCrud {
 
   async buscarColabolaboradorPorNome(nome){
     const esperaConexao = await this.conexao()
-    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where nome LIKE '${nome}%' COLLATE utf8_general_ci;`);
+    const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where nome LIKE '${nome}%' COLLATE utf8mb4_general_ci;`);
     return colaboradores[0];
   }
 
