@@ -4,6 +4,15 @@ function handleButtonCadastrar(event) {
   const formData = new FormData();
   const inputArquivoDeImagem = document.querySelector(".inputFile");
   const arquivoDeImagem = inputArquivoDeImagem.files[0];
+
+  const file = arquivoDeImagem;
+  const maxSizeInBytes = 500 * 1024; // 500 KB
+
+  if (file && file.size > maxSizeInBytes) {
+    alert(file.size);
+    fotoInput.value = ''; // Limpa o campo de input file
+  }
+
   formData.append("imagem", arquivoDeImagem);
   const constNome = document.querySelector(".inputNome").value;
   const constRg = document.querySelector(".inputRg").value;
@@ -11,6 +20,7 @@ function handleButtonCadastrar(event) {
   const constSpjAnoDp = document.querySelector(".inputSpjAnoDp").value;
 
   const objCredenciais = {
+    token:localStorage.getItem('cre'),
     nome: constNome,
     rg: constRg,
     cpf: constCpf,
@@ -21,7 +31,6 @@ function handleButtonCadastrar(event) {
     formData.append(key, value);
   });
 
-  debugger;
 
   axios
     .post("http://localhost:21009/cadastrarColaborador", formData)
@@ -33,6 +42,7 @@ function handleButtonCadastrar(event) {
       alert(error.response.data.message);
     });
 }
+
 
 const form = document.getElementById("cadastroForm");
 form.addEventListener("submit", handleButtonCadastrar);

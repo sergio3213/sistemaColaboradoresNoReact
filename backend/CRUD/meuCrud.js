@@ -6,11 +6,11 @@ class meuCrud {
       user: "sergiomelo_add1", 
       password: "senhabd12", 
       database: "sergiomeloback", 
- */
+  */
       host: "localhost",
       user: "root", 
       password: "$ENHAfraca12", 
-      database: "sistema_de_colaboradores", 
+      database: "sistema_de_colaboradores",  
     });
   }
   

@@ -117,6 +117,7 @@ async function handleButtonPesquisar() {
               const inputArquivoDeImagem = document.querySelector(`.inputFile${index}`)
               const arquivoDeImagem = inputArquivoDeImagem.files[0]
               const dadosAtualizados = {
+                token:localStorage.getItem('cre'),
                 id:data.id,
                 nome: elementNome.value,
                 rg: elementRg.value,
@@ -143,6 +144,7 @@ async function handleButtonPesquisar() {
                 
               }else{
                 const dadosAtualizados = {
+                  token:localStorage.getItem('cre'),
                   id:data.id,
                   nome: elementNome.value,
                   rg: elementRg.value,
@@ -166,14 +168,14 @@ async function handleButtonPesquisar() {
               const confirmacao = await window.confirm('Deseja mesmo excluir o colaborador?');
 
               if(confirmacao==true){
-              try{const response = await axios.delete(`http://localhost:21009/deletaColaborador?id=${data.id}`, { headers: { Authorization: 'Bearer token' } })
+              try{const response = await axios.delete(`http://localhost:21009/deletaColaborador?id=${data.id}&token=${localStorage.getItem('cre')}`, { headers: { Authorization: 'Bearer token' } })
                   alert(response.data.message)
               }
-              catch(err){alert(err)}
+              catch(err){alert(err.response.data.message)}
             }else{
-              alert('testando');
+              
             }
-            alert();
+           
           }
 
             const elementButtonDeletar = document.createElement('button');
@@ -337,6 +339,7 @@ async function handleButtonPesquisar() {
               const inputArquivoDeImagem = document.querySelector(`.inputFile${index}`)
               const arquivoDeImagem = inputArquivoDeImagem.files[0]
               const dadosAtualizados = {
+                token:localStorage.getItem('cre'),
                 id:data.id,
                 nome: elementNome.value,
                 rg: elementRg.value,
@@ -353,7 +356,7 @@ async function handleButtonPesquisar() {
 
               formData.append('_method', 'PUT');
               
-              axios.put("http://sergiomelobackend.com.br:21009/editaColaborador",
+              axios.put("http://localhost:21009/editaColaborador",
                await formData,
                {headers: {
                 'Content-Type': 'multipart/form-data'
@@ -363,13 +366,14 @@ async function handleButtonPesquisar() {
                 
               }else{
                 const dadosAtualizados = {
+                  token:localStorage.getItem('cre'),
                   id:data.id,
                   nome: elementNome.value,
                   rg: elementRg.value,
                   cpf: elementCpf.value,
                   spjanodp: elementspjanodp.value,
                 }
-                axios.put("http://sergiomelobackend.com.br:21009/editaColaborador",await dadosAtualizados,
+                axios.put("http://localhost:21009/editaColaborador",await dadosAtualizados,
                 ).then(
                   (data)=>{
                     alert("Edição salva com sucesso")
@@ -385,14 +389,13 @@ async function handleButtonPesquisar() {
               const confirmacao = await window.confirm('Deseja mesmo excluir o colaborador?');
 
               if(confirmacao==true){
-              try{const response = await axios.delete(`http://localhost:21009/deletaColaborador?id=${data.id}`, { headers: { Authorization: 'Bearer token' } })
+              try{const response = await axios.delete(`http://localhost:21009/deletaColaborador?id=${data.id}&token=${localStorage.getItem('cre')}`, { headers: { Authorization: 'Bearer token' } })
                   alert(response.data.message)
               }
-              catch(err){alert(err)}
+              catch(err){alert(err.response.data.message)}
             }else{
-              alert('Erro ao deletar usuario');
+              
             }
-            alert();
           }
 
             const elementButtonDeletar = document.createElement('button');
@@ -552,6 +555,7 @@ async function handleButtonPesquisar() {
               const inputArquivoDeImagem = document.querySelector(`.inputFile${index}`)
               const arquivoDeImagem = inputArquivoDeImagem.files[0]
               const dadosAtualizados = {
+                token:localStorage.getItem('cre'),
                 id:data.id,
                 nome: elementNome.value,
                 rg: elementRg.value,
@@ -578,6 +582,7 @@ async function handleButtonPesquisar() {
                 
               }else{
                 const dadosAtualizados = {
+                  token:localStorage.getItem('cre'),
                   id:data.id,
                   nome: elementNome.value,
                   rg: elementRg.value,
@@ -601,14 +606,13 @@ async function handleButtonPesquisar() {
               const confirmacao = await window.confirm('Deseja mesmo excluir o colaborador?');
 
               if(confirmacao==true){
-              try{const response = await axios.delete(`http://localhost:21009/deletaColaborador?id=${data.id}`, { headers: { Authorization: 'Bearer token' } })
+              try{const response = await axios.delete(`http://:21009/deletaColaborador?id=${data.id}&token=${localStorage.getItem('cre')}`, { headers: { Authorization: 'Bearer token' } })
                   alert(response.data.message)
               }
-              catch(err){alert(err)}
+              catch(err){alert(err.response.data.message)}
             }else{
-              alert('testando');
+              
             }
-            alert();
           }
 
 

@@ -6,7 +6,7 @@ function requisicaoAxiosCadastroDeUsuarios() {
     console.log(inputUsuario+inputSenha+inputTipo);
 
     axios.post('http://localhost:21009/cadastrarUsuario',
-    {
+    {   token:localStorage.getItem('cre'),
         usuario:inputUsuario,
         senha:inputSenha,
         tipo:inputTipo
