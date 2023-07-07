@@ -125,9 +125,9 @@ class meuCrud {
     const usuarios = await esperaConexao.execute(`SELECT * FROM usuarios WHERE usuario LIKE '${usuario}%' COLLATE utf8mb4_general_ci;`);
     return usuarios[0]
   }
-  async editaUsuario(id,usuario,senha){
+  async editaUsuario(id,usuario,senha,tipo){
     const esperaConexao = await this.conexao();
-    const usuarioEditado = await esperaConexao.execute(`UPDATE usuarios SET usuario = '${usuario}', senha='${senha}' WHERE id = ${id}`);
+    const usuarioEditado = await esperaConexao.execute(`UPDATE usuarios SET usuario = '${usuario}', senha='${senha}',tipo='${tipo}' WHERE id = ${id}`);
     return usuarioEditado
   }
 }

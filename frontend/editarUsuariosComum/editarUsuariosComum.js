@@ -69,9 +69,9 @@ async function handleButtonPesquisar() {
           const resposta = await axios.put(
             `http://localhost:21009/editaUsuario?id=${data.id}&usuario=${elementNome.value}&senha=${elementSenha.value}&tipo=${selectTipo.value}`
           );
-          console.log(resposta);
+          alert(resposta.data.message);
         } catch (err) {
-          console.log(err);
+          alert(err);
         }
       }
       const inputButton = document.createElement("input");
