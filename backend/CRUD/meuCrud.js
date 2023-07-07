@@ -119,7 +119,20 @@ class meuCrud {
     const colaboradorDeletado = await esperaConexao.execute(`DELETE FROM colaboradores WHERE id = ${id}`);
     return colaboradorDeletado;
   }
+
+  async buscarUsuarioPorUsuario(usuario){
+    const esperaConexao = await this.conexao();
+    const usuarios = await esperaConexao.execute(`SELECT * FROM usuarios WHERE usuario LIKE '${usuario}%' COLLATE utf8mb4_general_ci;`);
+    return usuarios[0]
+  }
+  async editaUsuario(id,usuario,senha){
+    const esperaConexao = await this.conexao();
+    const usuarioEditado = await esperaConexao.execute(`UPDATE usuarios SET usuario = '${usuario}', senha='${senha}' WHERE id = ${id}`);
+    return usuarioEditado
+  }
 }
+
+
 
 
 
