@@ -43,19 +43,23 @@ class meuCrud {
 
   async cadastrarColaborador(nome,rg,cpf,spjanodp,ext) {
     const esperaConexao = await this.conexao()
-    const arrayUltimoId = await esperaConexao.execute('SELECT * FROM colaboradores ORDER BY id DESC LIMIT 1;');
     
+    const arrayUltimoId = await esperaConexao.execute('SELECT * FROM colaboradores ORDER BY id DESC LIMIT 1;');
+      
     try{
+      console.log('...................',ext)
       const ultimoId = arrayUltimoId[0][0].id
+      console.log('...................',ext)
       await esperaConexao.execute(
         `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${(ultimoId+1)+'.'+ ext}')`
       )
+      console.log('...................',ext)
 
     }
       catch(err){
         const ultimoId = 0
         await esperaConexao.execute(
-          `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId+1}.jpg')`
+          `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${ultimoId+1}.${ext}')`
         )
   
       }
@@ -102,6 +106,18 @@ class meuCrud {
     const esperaConexao = await this.conexao()
     const colaboradores = await esperaConexao.execute(`SELECT * FROM colaboradores where cpf LIKE '${cpf}' COLLATE utf8mb4_general_ci;`);
     return colaboradores[0];
+  }
+
+  async buscaColaboradorPorId(id){
+    const esperaConexao = await this.conexao()
+    const nomeImagem = await esperaConexao.execute(`SELECT img FROM colaboradores where id = ${id}`);
+    return nomeImagem;
+  }
+
+  async deletaColaboradorPorId(id){
+    const esperaConexao = await this.conexao()
+    const colaboradorDeletado = await esperaConexao.execute(`DELETE FROM colaboradores WHERE id = ${id}`);
+    return colaboradorDeletado;
   }
 }
 

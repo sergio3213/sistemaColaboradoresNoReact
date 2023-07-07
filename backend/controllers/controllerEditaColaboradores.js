@@ -54,9 +54,10 @@ async function controllerEditaColaboradores(req, res) {
     if (!regexSpjAnoDp.test(req.body.spjanodp)) {
       return res.status(400).json({message:"Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 24 dígitos!)"})
     }
-
+    const nomeImagem = await crud.buscaColaboradorPorId(req.body.id)
+    
     const fs = require("fs");
-    const caminhoDoArquivo = `./img/imgsyst${req.body.id}.${req.body.extensao}`;
+    const caminhoDoArquivo = `./img/${nomeImagem[0][0].img}`;//aqui está o erro
     console.log("hhh", caminhoDoArquivo);
 
     fs.unlink(caminhoDoArquivo, (err) => {

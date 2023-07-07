@@ -112,9 +112,8 @@ async function handleButtonPesquisar() {
 
             async function handleButonSalvar(e){
               if(imagemAdicionada[index]=="adicionado"){
-                console.log(imagemAdicionada[index])
-                console.log(',,',imagemAdicionada)
-                const formData = new FormData();
+              console.log("jjjjjjjjjjjjjjjjjjjjjjj")
+              const formData = new FormData();
               const inputArquivoDeImagem = document.querySelector(`.inputFile${index}`)
               const arquivoDeImagem = inputArquivoDeImagem.files[0]
               const dadosAtualizados = {
@@ -163,8 +162,23 @@ async function handleButtonPesquisar() {
               
             }
 
+            async function handleButtonDeletar(){
+              const confirmacao = await window.confirm('Deseja mesmo excluir o colaborador?');
+
+              if(confirmacao==true){
+              try{const response = await axios.delete(`http://localhost:21009/deletaColaborador?id=${data.id}`, { headers: { Authorization: 'Bearer token' } })
+                  alert(response.data.message)
+              }
+              catch(err){alert(err)}
+            }else{
+              alert('testando');
+            }
+            alert();
+          }
+
             const elementButtonDeletar = document.createElement('button');
             elementButtonDeletar.innerText="Deletar"
+            elementButtonDeletar.onclick= handleButtonDeletar
             elementButtonDeletar.style.position='relative'
             elementButtonDeletar.style.top='25vh'
             divColaboradores.appendChild(elementButtonDeletar)
@@ -367,10 +381,25 @@ async function handleButtonPesquisar() {
               
             }
 
+            async function handleButtonDeletar(){
+              const confirmacao = await window.confirm('Deseja mesmo excluir o colaborador?');
+
+              if(confirmacao==true){
+              try{const response = await axios.delete(`http://localhost:21009/deletaColaborador?id=${data.id}`, { headers: { Authorization: 'Bearer token' } })
+                  alert(response.data.message)
+              }
+              catch(err){alert(err)}
+            }else{
+              alert('Erro ao deletar usuario');
+            }
+            alert();
+          }
+
             const elementButtonDeletar = document.createElement('button');
             elementButtonDeletar.innerText="Deletar"
             elementButtonDeletar.style.position='relative'
             elementButtonDeletar.style.top='25vh'
+            elementButtonDeletar.onclick = handleButtonDeletar
             divColaboradores.appendChild(elementButtonDeletar)
 
             divColaboradores.appendChild(document.createElement('br'))
@@ -567,10 +596,28 @@ async function handleButtonPesquisar() {
               
             }
 
+
+            async function handleButtonDeletar(){
+              const confirmacao = await window.confirm('Deseja mesmo excluir o colaborador?');
+
+              if(confirmacao==true){
+              try{const response = await axios.delete(`http://localhost:21009/deletaColaborador?id=${data.id}`, { headers: { Authorization: 'Bearer token' } })
+                  alert(response.data.message)
+              }
+              catch(err){alert(err)}
+            }else{
+              alert('testando');
+            }
+            alert();
+          }
+
+
             const elementButtonDeletar = document.createElement('button');
             elementButtonDeletar.innerText="Deletar"
+            elementButtonDeletar.onclick=handleButtonDeletar
             elementButtonDeletar.style.position='relative'
             elementButtonDeletar.style.top='25vh'
+            
             divColaboradores.appendChild(elementButtonDeletar)
 
             divColaboradores.appendChild(document.createElement('br'))

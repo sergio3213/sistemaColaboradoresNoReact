@@ -3,8 +3,9 @@ const bodyParser = require('body-parser')
 const routerGet = require("./rotas/rotaGet.js");
 const routerPost = require("./rotas/rotaPost.js");
 const routerPut = require("./rotas/rotaPut.js")
+const routerDelete = require("./rotas/rotaDelete.js")
 const app = express();
-const multer = require('multer');
+const cors = require('cors');
 
 app.use(bodyParser.json())
 app.use((_req,res,next)=>{
@@ -14,8 +15,10 @@ app.use((_req,res,next)=>{
   next()
 })
 
+app.use(cors())
  app.use(routerGet)
 app.use(routerPost)
 app.use(routerPut)
+app.use(routerDelete)
  
 module.exports = app

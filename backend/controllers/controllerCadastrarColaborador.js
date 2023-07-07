@@ -7,7 +7,7 @@
       const regexRg = /^(?!.*['"])[A-Za-z0-9]{8,10}$/
       const regexCpf = /^(?!.*['"])[0-9]{11}$/
       const regexSpjAnoDp = /^[a-zA-Z0-9/]{7,24}$/
-      console.log(',,,,,,',req.file)
+      
       if(req.file === undefined){
         return res.status(400).json({message:"Você precisa escolher uma imagem!"})
       }
@@ -36,25 +36,28 @@
         })
       }
       
-      const arquivo = req.file
-      console.log('mmmmm',arquivo)
+      const arquivo = await req.file
       const caminhoTemporario = arquivo.path
       const crud = new meuCrud();
       const idUltimoColaborador = await crud.buscaIdUltimoColaborador()
-      console.log(req.file.originalname)
-      const caminhoDestino = './img/' + "imgsyst" + (idUltimoColaborador+1) +'.'+ arquivo.mimetype.slice(-3)
-      console.log(caminhoDestino)
+      
+
+      console.log('gggggggggggggggggggggggGGG',arquivo)
+      const caminhoDestino = './img/' + "imgsyst" + (idUltimoColaborador+1) +'.'+ arquivo.originalname.slice(-3)
       const arquivoCriacao = await fs.rename(caminhoTemporario,caminhoDestino, async(erro)=>{
           if (erro) {
               return res.status(500).send('Erro ao salvar a imagem.');
             } else {
-              await crud.cadastrarColaborador(req.body.nome,req.body.rg,req.body.cpf,req.body.spjAnoDp,arquivo.mimetype.slice(-3))
+              console.log('NNNNNNNN')
+      
+              await crud.cadastrarColaborador(req.body.nome,req.body.rg,req.body.cpf,req.body.spjAnoDp, arquivo.originalname.slice(-3))
               return res.status(200).json({message:"Usuário cadastrado com sucesso!"})
             }
       })
       
-
+    
       
+
   }
 
   module.exports = controllerCadastrarColaborador;

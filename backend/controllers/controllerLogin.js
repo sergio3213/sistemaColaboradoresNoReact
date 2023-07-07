@@ -12,7 +12,7 @@ const jwtConfig = {
 async function controllerLogin(req, res) {
     const crud = new meuCrud()
     const expressaoRegularUsuario = /^[a-zA-Z0-9]+$/
-    const expressaoRegularSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}$/
+    const expressaoRegularSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,30}$/
     console.log(req.query)
 
     if(!expressaoRegularUsuario.test(req.query.usuario)){
