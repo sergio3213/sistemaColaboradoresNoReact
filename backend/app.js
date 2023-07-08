@@ -9,13 +9,23 @@ const cors = require('cors');
 
 app.use(bodyParser.json())
 app.use((_req,res,next)=>{
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', 'httsp://localhost');
   res.header('Access-Control-Allow-Headers', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   next()
 })
 
-app.use(cors())
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (origin === 'http://127.0.0.1:3002' || origin === 'https://localhost:3002in') {
+      callback(null, true);
+    } else {
+      callback(new Error('Acesso não permitido por CORS'));
+    }
+  }
+};
+
+app.use(cors(corsOptions))
  app.use(routerGet)
 app.use(routerPost)
 app.use(routerPut)

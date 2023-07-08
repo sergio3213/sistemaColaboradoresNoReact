@@ -130,6 +130,12 @@ class meuCrud {
     const usuarioEditado = await esperaConexao.execute(`UPDATE usuarios SET usuario = '${usuario}', senha='${senha}',tipo='${tipo}' WHERE id = ${id}`);
     return usuarioEditado
   }
+
+  async buscarUsuarioPorIdDiferente(usuario,id){
+    const esperaConexao = await this.conexao();
+    const usuarios = await esperaConexao.execute(`SELECT * FROM usuarios WHERE usuario = '${usuario}' AND id != ${id};`);
+    return usuarios[0]
+  }
 }
 
 

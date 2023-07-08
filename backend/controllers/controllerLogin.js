@@ -24,13 +24,12 @@ async function controllerLogin(req, res) {
     }
 
     const usuario = await crud.buscarUsuarioPorUsuarioEsenha(req.query.usuario, req.query.senha)
-
     
     if(usuario.length===0){
         return res.status(400).json({message:'usuario ou senha incorreto!'})
     }
 
-    const payload = {usuario:req.query.usuario,senha:req.query.senha}
+    const payload = {usuario:req.query.usuario,senha:req.query.senha,tipo:usuario[0].tipo}
     const token = jwt.sign( payload, secretPasswordJwt, jwtConfig)
    
     

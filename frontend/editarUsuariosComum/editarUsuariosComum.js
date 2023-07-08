@@ -5,7 +5,9 @@ async function handleButtonPesquisar() {
     const resposta = await axios.get(
       `http://localhost:21009/buscarUsuarioPorUsuario?usuario=${inputPesquisa}`
     );
-    console.log(resposta);
+    if(resposta.data.length===0){
+      alert("Não existe usuário com esse nome!")
+    };
 
     resposta.data.map((data) => {
       const elementH1Nome = document.createElement("h2");
@@ -71,7 +73,7 @@ async function handleButtonPesquisar() {
           );
           alert(resposta.data.message);
         } catch (err) {
-          alert(err);
+          alert(err.response.data.message);
         }
       }
       const inputButton = document.createElement("input");
@@ -85,6 +87,6 @@ async function handleButtonPesquisar() {
       divElementsUsuarios.appendChild(document.createElement("hr"));
     });
   } catch (err) {
-    alert(err);
+    alert(err.response.data.message);
   }
 }
