@@ -2,6 +2,7 @@ async function handleButtonPesquisar() {
   const inputPesquisa = document.querySelector(".inputPesquisUsuarios").value;
   const divElementsUsuarios = document.querySelector(".divElementsUsuarios");
   try {
+    divElementsUsuarios.innerHTML=''
     const resposta = await axios.get(
       `http://localhost:21009/buscarUsuarioPorUsuario?usuario=${inputPesquisa}`
     );

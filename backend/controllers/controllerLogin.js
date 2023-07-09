@@ -4,14 +4,14 @@ const jwt = require("jsonwebtoken");
 const secretPasswordJwt = "senhaFortissima319";
 
 const jwtConfig = {
-  expiresIn: "7d",
+  expiresIn: "1d",
   algorithm: "HS256",
 };
 
 
 async function controllerLogin(req, res) {
     const crud = new meuCrud()
-    const expressaoRegularUsuario = /^[a-zA-Z0-9]+$/
+    const expressaoRegularUsuario = /^[a-zA-Z0-9_]+$/
     const expressaoRegularSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,30}$/
     console.log(req.query)
 

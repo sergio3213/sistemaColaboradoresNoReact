@@ -199,10 +199,6 @@ async function handleButtonPesquisar() {
             divColaboradores.appendChild(document.createElement('br'))
             
             divColaboradores.appendChild(document.createElement('br'))
-            const elementHr = document.createElement('hr');
-            elementHr.style.position='relative';
-            elementHr.style.top="1vh";
-            divColaboradores.appendChild(elementHr)
             
 
             
@@ -419,10 +415,6 @@ async function handleButtonPesquisar() {
             divColaboradores.appendChild(document.createElement('br'))
             
             divColaboradores.appendChild(document.createElement('br'))
-            const elementHr = document.createElement('hr');
-            elementHr.style.position='relative';
-            elementHr.style.top="1vh";
-            divColaboradores.appendChild(elementHr)
             
 
             
@@ -638,10 +630,7 @@ async function handleButtonPesquisar() {
             divColaboradores.appendChild(document.createElement('br'))
             
             divColaboradores.appendChild(document.createElement('br'))
-            const elementHr = document.createElement('hr');
-            elementHr.style.position='relative';
-            elementHr.style.top="1vh";
-            divColaboradores.appendChild(elementHr)
+            
             
 
             

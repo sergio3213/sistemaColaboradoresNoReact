@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./pesquisarColaboradoresUsuarioComum.css" />
+    </head>
+    <body>
+        <div class="divLinks">
+            <a href="../loginUsuarios/loginUsuarios.html">Login</a>
+        </div>
+
+        <div class="divH1PesquisarColaboradores">
+            <h1>Pesquisar Colaboradores</h1>
+        </div>
+        
+        <div class="divInputsPesquisa">
+            <input type="text" placeholder="Pesquisar Colaboradores" class="inputPesquisaColaborador">
+            <br/>
+            <br/>
+            <select class="selectNomeRgCpf">
+                <option>Nome</option>
+                <option>Rg</option>
+                <option>Cpf</option>
+            </select>
+            <br/>
+            <br/>   
+            <button onclick="handleButtonPesquisar()">
+                pesquisar
+            </button>
+        </div>
+
+        <div class="divColaboradores"></div>
+        
+        <script src="./pesquisarColaboradoresUsuarioComum.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </body>
+</html>

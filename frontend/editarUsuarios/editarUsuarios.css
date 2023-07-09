@@ -12,7 +12,7 @@
     font-size:calc(1vw + 1vh);
     color: gray;
 }
-
+.divLinks{font-size:calc(1.1vw + 0.5vh)}
 .buttonPesquisar{
     width:10vw;
     height:5vh;
