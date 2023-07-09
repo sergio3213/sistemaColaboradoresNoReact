@@ -3,11 +3,18 @@ const selectNomeRgCpf = document.querySelector(".selectNomeRgCpf")
 const inputPesquisaColaborador = document.querySelector(".inputPesquisaColaborador")
 
 async function handleButtonPesquisar(){
+    if(inputPesquisaColaborador.value===''){
+        alert("Digíte o nome do colaborador!")
+    }
+    else{
     divColaboradores.innerHTML=''
     if(selectNomeRgCpf.value === "Nome"){
-
+        try{
         const resposta = await axios.get(`http://localhost:21009/colaboradoresPorNome?nome=${inputPesquisaColaborador.value}`)
         
+        if(resposta.data.length===0){
+            alert("Colaborador não encontrado")
+        }
     
         const respostaMap = resposta.data.map((data)=>{
             divColaboradores.appendChild(document.createElement('br'))
@@ -91,6 +98,10 @@ async function handleButtonPesquisar(){
                 
             
         })
+
+    }catch(err){
+        alert(err.response.data.message)
+    }
 
     }
 
@@ -105,8 +116,12 @@ async function handleButtonPesquisar(){
 
     if(selectNomeRgCpf.value === "Rg"){
 
+
+        try{
         const resposta = await axios.get(`http://localhost:21009/colaboradoresPorRg?rg=${inputPesquisaColaborador.value}`)
-        
+        if(resposta.data.length===0){
+            alert("Colaborador não encontrado")
+        }
     
         const respostaMap = resposta.data.map((data)=>{
             divColaboradores.appendChild(document.createElement('br'))
@@ -190,6 +205,9 @@ async function handleButtonPesquisar(){
                 
             
         })
+    }catch(err){
+        alert(err.response.data.message)
+    }
 
     }
 
@@ -202,8 +220,11 @@ async function handleButtonPesquisar(){
 
     if(selectNomeRgCpf.value === "Cpf"){
 
+        try{
         const resposta = await axios.get(`http://localhost:21009/colaboradoresPorCpf?cpf=${inputPesquisaColaborador.value}`)
-        
+        if(resposta.data.length===0){
+            alert("Colaborador não encontrado")
+        }
     
         const respostaMap = resposta.data.map((data)=>{
             divColaboradores.appendChild(document.createElement('br'))
@@ -287,6 +308,9 @@ async function handleButtonPesquisar(){
                 
             
         })
-
+    }catch(err){
+        alert(err.response.data.message)
     }
+    }
+}
 }

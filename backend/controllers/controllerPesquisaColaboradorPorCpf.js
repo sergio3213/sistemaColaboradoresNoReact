@@ -1,8 +1,11 @@
 const meuCrud = require('../CRUD/meuCrud.js')
 const fs = require('fs')
 async function controllerPesquisaColaboradorPorCpf(req, res) {
+    const regexCpf = /^[0-9]+$/
+    if(!regexCpf.test(req.query.cpf)){
+        return res.status(400).json({message:'Apenas números são permitidos!'})
+    }
     const crud = new meuCrud()
-    
     const colaboradores = await crud.buscarColabolaboradorPorCpf(req.query.cpf)
     
     console.log('mmmmmmmmm',colaboradores)

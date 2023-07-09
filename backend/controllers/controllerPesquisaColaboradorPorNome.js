@@ -1,8 +1,13 @@
 const meuCrud = require('../CRUD/meuCrud.js')
 const fs = require('fs')
 async function controllerPesquisaColaboradorPorNome(req, res) {
+    const regexNome = /^[a-zA-Z\s]+$/
+
     const crud = new meuCrud()
-    
+
+    if(!regexNome.test(req.query.nome)){
+        return res.status(400).json({message:"Só são permitidas letras e espaços no campo de busca!"})
+    }
     const colaboradores = await crud.buscarColabolaboradorPorNome(req.query.nome)
     
     const colaboradoresMap = await colaboradores.map((elem)=>{

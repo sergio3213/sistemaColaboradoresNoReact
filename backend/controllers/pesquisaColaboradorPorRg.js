@@ -1,6 +1,12 @@
 const meuCrud = require('../CRUD/meuCrud.js')
 const fs = require('fs')
 async function controllerPesquisaColaboradorPorRg(req, res) {
+    
+    const regexRg = /^[a-zA-Z0-9]+$/
+    if(!regexRg.test(req.query.rg)){
+        return res.status(400).json({message:'Apenas números e uma letra são permitidos!'})
+    }
+    
     const crud = new meuCrud()
     
     const colaboradores = await crud.buscarColabolaboradorPorRg(req.query.rg)
