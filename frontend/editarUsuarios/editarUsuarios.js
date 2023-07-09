@@ -5,13 +5,13 @@ async function handleButtonPesquisar() {
   const imagemAdicionada = [];
 
   if (inputPesquisar === "") {
-    alert("Digíte o nome do colaborador!");
+    alert("Digíte os dados do colaborador!");
   } else {
     if (selectPesquisar === "Nome") {
       imagemAdicionada.splice(0, imagemAdicionada.length);
       axios
         .get(
-          `http://localhost:21009/colaboradoresPorNome?nome=${inputPesquisar}`
+          `http://localhost:21009/colaboradoresPorNome?nome=${inputPesquisar}&token=${localStorage.getItem('cre')}`
         )
         .then((data) => {
           if (data.data.length === 0) {
@@ -225,11 +225,11 @@ async function handleButtonPesquisar() {
             divColaboradores.appendChild(document.createElement("br"));
           });
         })
-        .catch((data) => console.log(data));
+        .catch((err) => alert(err.response.data.message));
     } else if (selectPesquisar === "Rg") {
       imagemAdicionada.splice(0, imagemAdicionada.length);
       axios
-        .get(`http://localhost:21009/colaboradoresPorRg?rg=${inputPesquisar}`)
+        .get(`http://localhost:21009/colaboradoresPorRg?rg=${inputPesquisar}&token=${localStorage.getItem('cre')}`)
         .then((data) => {
           if (data.data.length === 0) {
             alert("Não existe nenhum usuário com esse rg!");
@@ -438,11 +438,11 @@ async function handleButtonPesquisar() {
 
             divColaboradores.appendChild(document.createElement("br"));
           });
-        });
+        }).catch((err)=>{alert(err.response.data.message)});
     } else if (selectPesquisar === "Cpf") {
       imagemAdicionada.splice(0, imagemAdicionada.length);
       axios
-        .get(`http://localhost:21009/colaboradoresPorCpf?cpf=${inputPesquisar}`)
+        .get(`http://localhost:21009/colaboradoresPorCpf?cpf=${inputPesquisar}&token=${localStorage.getItem('cre')}`)
         .then((data) => {
           if (data.data.length === 0) {
             alert("Não existe nenhum usuário com esse cpf!");
@@ -652,7 +652,7 @@ async function handleButtonPesquisar() {
 
             divColaboradores.appendChild(document.createElement("br"));
           });
-        });
+        }).catch((err)=>{alert(err.response.data.message)});;
     }
   }
 }

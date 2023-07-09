@@ -6,11 +6,12 @@ const controllerPesquisaColaboradorPorNome = require("../controllers/controllerP
 const controllerPesquisaColaboradorPorRg = require("../controllers/pesquisaColaboradorPorRg.js")
 const controllerPesquisaColaboradorPorCpf = require("../controllers/controllerPesquisaColaboradorPorCpf.js")
 const controllerPesquisaUsuarioPorUsuario = require("../controllers/controllerPesquisaUsuarioPorUsuario.js")
+const middlewareLoginComumQuery = require("../middlewareLogin/middlewareLoginComumQuery.js")
 
 routerGet.get("/login", controllerLogin);
-routerGet.get("/colaboradoresPorNome", controllerPesquisaColaboradorPorNome);
-routerGet.get("/colaboradoresPorRg",controllerPesquisaColaboradorPorRg)
-routerGet.get("/colaboradoresPorCpf",controllerPesquisaColaboradorPorCpf)
+routerGet.get("/colaboradoresPorNome", middlewareLoginComumQuery, controllerPesquisaColaboradorPorNome);
+routerGet.get("/colaboradoresPorRg",middlewareLoginComumQuery,controllerPesquisaColaboradorPorRg)
+routerGet.get("/colaboradoresPorCpf",middlewareLoginComumQuery,controllerPesquisaColaboradorPorCpf)
 
 routerGet.get("/buscarUsuarioPorUsuario",controllerPesquisaUsuarioPorUsuario)
 
