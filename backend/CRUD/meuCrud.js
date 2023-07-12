@@ -2,15 +2,15 @@ const mysql = require("mysql2/promise");
 
 class meuCrud {
     conexao = async () => { return mysql.createConnection({
-      host: "mysql.sergiomelobackend.com.br",
+      /* host: "mysql.sergiomelobackend.com.br",
       user: "sergiomelo_add1", 
       password: "senhabd12", 
       database: "sergiomeloback", 
- 
-      /* host: "localhosst",
+  */
+      host: "localhost",
       user: "root", 
       password: "$ENHAfraca12", 
-      database: "sistema_de_colaboradores", */  
+      database: "sistema_de_colaboradores",  
     });
   }
   
@@ -18,7 +18,7 @@ class meuCrud {
   async cadastrarUsuario(usuario, senha, tipo) {
     const esperaConexao = await this.conexao()
     return esperaConexao.execute(
-      `INSERT INTO usuarios (usuario, senha, tipo) VALUES (?, ?, ?)`,
+      `INSERT INTO usuarios (usuario, senha, tipo,primeiroLogin) VALUES (?, ?, ?, '0')`,
       [usuario, senha, tipo]
     );
   }

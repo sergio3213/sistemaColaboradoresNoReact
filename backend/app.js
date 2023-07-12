@@ -9,7 +9,7 @@ const cors = require('cors');
 
 app.use(bodyParser.json())
 app.use((_req,res,next)=>{
-  res.header('Access-Control-Allow-Origin', 'httsp://localhost');
+  res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   next()

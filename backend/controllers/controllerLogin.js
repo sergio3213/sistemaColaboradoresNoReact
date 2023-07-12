@@ -29,7 +29,8 @@ async function controllerLogin(req, res) {
         return res.status(400).json({message:'usuario ou senha incorreto!'})
     }
 
-    const payload = {usuario:req.query.usuario,senha:req.query.senha,tipo:usuario[0].tipo}
+    console.log(',xxxxxxxxxxx',usuario)
+    const payload = usuario[0]
     const token = jwt.sign( payload, secretPasswordJwt, jwtConfig)
    
     

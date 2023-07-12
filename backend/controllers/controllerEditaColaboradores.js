@@ -6,7 +6,7 @@ async function controllerEditaColaboradores(req, res) {
   const regexNome = /^(?=[^'"]{1,80}$)[A-Za-zÀ-ÿ]+(?:\s[A-Za-zÀ-ÿ]+)+$/;
   const regexRg = /^(?!.*['"])[A-Za-z0-9]{8,10}$/;
   const regexCpf = /^(?!.*['"])[0-9]{11}$/;
-  const regexSpjAnoDp = /^[a-zA-Z0-9_\/]+$/;;
+  const regexSpjAnoDp =/^[a-zA-Z0-9_/-]+$/;
 
   if (req.file === undefined) {
     try {

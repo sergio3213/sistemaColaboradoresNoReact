@@ -7,13 +7,13 @@
       const regexTelefone = /^\+\d{2} \(\d{2}\) \d{5}-\d{4}$/
       const regexRg = /^(?!.*['"])[A-Za-z0-9]{8,10}$/
       const regexCpf = /^(?!.*['"])[0-9]{11}$/
-      const regexSpjAnoDp = /^[a-zA-Z0-9/_]{7,24}$/
+      const regexSpjAnoDp = /^[a-zA-Z0-9/_-]{7,24}$/
 
       
       if(req.file === undefined){
         return res.status(400).json({message:"Você precisa escolher uma imagem!"})
       }
-      if(req.file.mimetype.slice(-3)!=="jpg" && req.file.mimetype.slice(-3)!=="png" && req.file.mimetype.slice(-4)!=="JPEG" && req.file.mimetype.slice(-4)!=="jpeg" ){
+      if(req.file.mimetype.slice(-3)!=="jpg" && req.file.mimetype.slice(-3)!=="peg" && req.file.mimetype.slice(-3)!=="png" && req.file.mimetype.slice(-4)!=="JPEG" && req.file.mimetype.slice(-4)!=="jpeg" ){
         return res.status(400).json({message:"Apenas arquivos png, jpg são suportados!"})
       }
       
