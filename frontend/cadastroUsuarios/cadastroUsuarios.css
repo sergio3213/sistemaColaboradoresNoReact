@@ -1,4 +1,9 @@
-.divLinks{font-size:calc(1.1vw + 0.5vh)}
+.divLinks a{
+    position:relative;
+    left:5vw;
+    font-size:1.85vw;
+    color:black
+}
 
 .divTitulo{
     text-align: center;

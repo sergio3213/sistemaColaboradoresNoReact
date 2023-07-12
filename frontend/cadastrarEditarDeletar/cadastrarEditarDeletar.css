@@ -5,14 +5,45 @@
 }
 
 .LinkUsuarioCadastraEditaDeleta{
-    font-size: calc(1vw + 1vh);
+    font-size: calc(1.5vw + 1vh);
     position:relative;
     left:5vw;
+    
+    color:black;
+    
 }
+    
+    
+
 
 .spanUsuarioCadastraEditaDeleta{
     position:relative;
     font-size:calc(1vw + 1vh);
+    font-family: Helvetica, sans-serif;
+    color:black;
+    text-decoration: underline;
     float:right;
     right:3vw;
+    font-weight: bold;
+}
+
+.linkCadastrarUsuarios{
+   color:black;
+   font-size:1.25vw;
+}
+
+.linkEditarUsuarios{
+   color:black;
+   font-size:1.25vw;
+   
+}
+
+.linkCadastrarColaborador{
+    color:black;
+    font-size:1.25vw;
+}
+
+.linkEditarColaborador{
+    color:black;
+    font-size:1.25vw;
 }

@@ -1,3 +1,7 @@
+.body{
+    background-image: url('./event.jpg');
+}
+
 .divH1Login{
     text-align: center;
     position:relative;

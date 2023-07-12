@@ -4,7 +4,7 @@ async function handleButtonPesquisar() {
   try {
     divElementsUsuarios.innerHTML=''
     const resposta = await axios.get(
-      `http://localhost:21009/buscarUsuarioPorUsuario?usuario=${inputPesquisa}`
+      `http://sergiomelobackend.com.br:21009/buscarUsuarioPorUsuario?usuario=${inputPesquisa}&token=${localStorage.getItem('cre')}`
     );
     if(resposta.data.length===0){
       alert("Não existe usuário com esse nome!")
@@ -70,7 +70,7 @@ async function handleButtonPesquisar() {
       async function handleInputSalvar() {
         try {
           const resposta = await axios.put(
-            `http://localhost:21009/editaUsuario?id=${data.id}&usuario=${elementNome.value}&senha=${elementSenha.value}&tipo=${selectTipo.value}`
+            `http://sergiomelobackend.com.br:21009/editaUsuario?id=${data.id}&usuario=${elementNome.value}&senha=${elementSenha.value}&tipo=${selectTipo.value}&token=${localStorage.getItem('cre')}`
           );
           alert(resposta.data.message);
         } catch (err) {

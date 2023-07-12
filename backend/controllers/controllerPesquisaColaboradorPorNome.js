@@ -18,6 +18,7 @@ async function controllerPesquisaColaboradorPorNome(req, res) {
         return({
             id:elem.id,
             nome:elem.nome,
+            telefone:elem.telefone,
             rg:elem.rg,
             cpf:elem.cpf,
             spjanodp:elem.spjanodp,

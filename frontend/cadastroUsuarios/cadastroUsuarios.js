@@ -3,9 +3,8 @@ function requisicaoAxiosCadastroDeUsuarios() {
     const inputUsuario = document.querySelector('.inputUsuarioCadastroUsuario').value
     const inputSenha = document.querySelector('.inputSenhaCadastroUsuario').value
     const inputTipo = document.querySelector('.SelectTipoCadastroUsuario').value
-    console.log(inputUsuario+inputSenha+inputTipo);
-
-    axios.post('http://localhost:21009/cadastrarUsuario',
+    console.log('teste')
+    axios.post('http://sergiomelobackend.com.br:21009/cadastrarUsuario',
     {   token:localStorage.getItem('cre'),
         usuario:inputUsuario,
         senha:inputSenha,

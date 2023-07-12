@@ -11,7 +11,7 @@ async function handleButtonPesquisar() {
       imagemAdicionada.splice(0, imagemAdicionada.length);
       axios
         .get(
-          `http://localhost:21009/colaboradoresPorNome?nome=${inputPesquisar}&token=${localStorage.getItem('cre')}`
+          `http://sergiomelobackend.com.br:21009/colaboradoresPorNome?nome=${inputPesquisar}&token=${localStorage.getItem('cre')}`
         )
         .then((data) => {
           if (data.data.length === 0) {
@@ -76,7 +76,21 @@ async function handleButtonPesquisar() {
             elementNome.style.top = "8vh";
             divColaboradores.appendChild(elementNome);
 
+
             divColaboradores.appendChild(document.createElement("br"));
+            divColaboradores.appendChild(document.createElement("br"));
+            
+            
+            const elementTelefone = document.createElement("input");
+            elementTelefone.type = "text";
+            elementTelefone.value = data.telefone;
+            elementTelefone.style.position = "relative";
+            elementTelefone.style.top = "8vh";
+            divColaboradores.appendChild(elementTelefone);
+
+
+            divColaboradores.appendChild(document.createElement("br"));
+
 
             const elementRg = document.createElement("input");
             elementRg.type = "text";
@@ -143,7 +157,7 @@ async function handleButtonPesquisar() {
 
                 axios
                   .put(
-                    "http://localhost:21009/editaColaborador",
+                    "http://sergiomelobackend.com.br:21009/editaColaborador",
                     await formData,
                     {
                       headers: {
@@ -168,7 +182,7 @@ async function handleButtonPesquisar() {
                 };
                 axios
                   .put(
-                    "http://localhost:21009/editaColaborador",
+                    "http://sergiomelobackend.com.br:21009/editaColaborador",
                     await dadosAtualizados
                   )
                   .then((data) => {
@@ -189,7 +203,7 @@ async function handleButtonPesquisar() {
               if (confirmacao == true) {
                 try {
                   const response = await axios.delete(
-                    `http://localhost:21009/deletaColaborador?id=${
+                    `http://sergiomelobackend.com.br:21009/deletaColaborador?id=${
                       data.id
                     }&token=${localStorage.getItem("cre")}`,
                     { headers: { Authorization: "Bearer token" } }
@@ -229,7 +243,7 @@ async function handleButtonPesquisar() {
     } else if (selectPesquisar === "Rg") {
       imagemAdicionada.splice(0, imagemAdicionada.length);
       axios
-        .get(`http://localhost:21009/colaboradoresPorRg?rg=${inputPesquisar}&token=${localStorage.getItem('cre')}`)
+        .get(`http://sergiomelobackend.com.br:21009/colaboradoresPorRg?rg=${inputPesquisar}&token=${localStorage.getItem('cre')}`)
         .then((data) => {
           if (data.data.length === 0) {
             alert("Não existe nenhum usuário com esse rg!");
@@ -294,6 +308,16 @@ async function handleButtonPesquisar() {
             divColaboradores.appendChild(elementNome);
 
             divColaboradores.appendChild(document.createElement("br"));
+            divColaboradores.appendChild(document.createElement("br"));
+
+            const elementTelefone = document.createElement("input");
+            elementTelefone.type = "text";
+            elementTelefone.value = data.telefone;
+            elementTelefone.style.position = "relative";
+            elementTelefone.style.top = "8vh";
+            divColaboradores.appendChild(elementTelefone);
+
+            divColaboradores.appendChild(document.createElement("br"));
 
             const elementRg = document.createElement("input");
             elementRg.type = "text";
@@ -361,7 +385,7 @@ async function handleButtonPesquisar() {
 
                 axios
                   .put(
-                    "http://localhost:21009/editaColaborador",
+                    "http://sergiomelobackend.com.br:21009/editaColaborador",
                     await formData,
                     {
                       headers: {
@@ -383,7 +407,7 @@ async function handleButtonPesquisar() {
                 };
                 axios
                   .put(
-                    "http://localhost:21009/editaColaborador",
+                    "http://sergiomelobackend.com.br:21009/editaColaborador",
                     await dadosAtualizados
                   )
                   .then((data) => {
@@ -403,7 +427,7 @@ async function handleButtonPesquisar() {
               if (confirmacao == true) {
                 try {
                   const response = await axios.delete(
-                    `http://localhost:21009/deletaColaborador?id=${
+                    `http://sergiomelobackend.com.br:21009/deletaColaborador?id=${
                       data.id
                     }&token=${localStorage.getItem("cre")}`,
                     { headers: { Authorization: "Bearer token" } }
@@ -442,7 +466,7 @@ async function handleButtonPesquisar() {
     } else if (selectPesquisar === "Cpf") {
       imagemAdicionada.splice(0, imagemAdicionada.length);
       axios
-        .get(`http://localhost:21009/colaboradoresPorCpf?cpf=${inputPesquisar}&token=${localStorage.getItem('cre')}`)
+        .get(`http://sergiomelobackend.com.br:21009/colaboradoresPorCpf?cpf=${inputPesquisar}&token=${localStorage.getItem('cre')}`)
         .then((data) => {
           if (data.data.length === 0) {
             alert("Não existe nenhum usuário com esse cpf!");
@@ -507,6 +531,17 @@ async function handleButtonPesquisar() {
             divColaboradores.appendChild(elementNome);
 
             divColaboradores.appendChild(document.createElement("br"));
+            divColaboradores.appendChild(document.createElement("br"));
+
+            
+            const elementTelefone = document.createElement("input");
+            elementTelefone.type = "text";
+            elementTelefone.value = data.telefone;
+            elementTelefone.style.position = "relative";
+            elementTelefone.style.top = "8vh";
+            divColaboradores.appendChild(elementTelefone);
+
+            divColaboradores.appendChild(document.createElement("br"));
 
             const elementRg = document.createElement("input");
             elementRg.type = "text";
@@ -574,7 +609,7 @@ async function handleButtonPesquisar() {
 
                 axios
                   .put(
-                    "http://localhost:21009/editaColaborador",
+                    "http://sergiomelobackend.com.br:21009/editaColaborador",
                     await formData,
                     {
                       headers: {
@@ -596,7 +631,7 @@ async function handleButtonPesquisar() {
                 };
                 axios
                   .put(
-                    "http://localhost:21009/editaColaborador",
+                    "http://sergiomelobackend.com.br:21009/editaColaborador",
                     await dadosAtualizados
                   )
                   .then((data) => {
@@ -616,7 +651,7 @@ async function handleButtonPesquisar() {
               if (confirmacao == true) {
                 try {
                   const response = await axios.delete(
-                    `http://:21009/deletaColaborador?id=${
+                    `http://sergiomelobackend.com.br:21009/deletaColaborador?id=${
                       data.id
                     }&token=${localStorage.getItem("cre")}`,
                     { headers: { Authorization: "Bearer token" } }

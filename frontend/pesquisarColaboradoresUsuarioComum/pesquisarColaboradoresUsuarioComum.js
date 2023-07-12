@@ -10,7 +10,7 @@ async function handleButtonPesquisar(){
     divColaboradores.innerHTML=''
     if(selectNomeRgCpf.value === "Nome"){
         try{
-        const resposta = await axios.get(`http://localhost:21009/colaboradoresPorNome?nome=${inputPesquisaColaborador.value}`)
+        const resposta = await axios.get(`http://sergiomelobackend.com.br:21009/colaboradoresPorNome?nome=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
         
         if(resposta.data.length===0){
             alert("Colaborador não encontrado")
@@ -56,7 +56,20 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
                 divColaboradores.appendChild(document.createElement('br'))
                 divColaboradores.appendChild(document.createElement('br'))
+
+                
+                const elementSpanTelefone = document.createElement('span');
+                elementSpanTelefone.innerHTML=`Telefone: ${data.telefone}`
+                elementSpanTelefone.style.fontSize="calc(1.5vw + 0.5vh)"
+                divColaboradores.appendChild(elementSpanTelefone)
     
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+    
+
+
                 const elementSpanRg = document.createElement('span');
                 elementSpanRg.innerHTML=`Rg: ${data.rg}`
                 elementSpanRg.style.fontSize="calc(1.5vw + 0.5vh)"
@@ -118,7 +131,7 @@ async function handleButtonPesquisar(){
 
 
         try{
-        const resposta = await axios.get(`http://localhost:21009/colaboradoresPorRg?rg=${inputPesquisaColaborador.value}`)
+        const resposta = await axios.get(`http://sergiomelobackend.com.br:21009/colaboradoresPorRg?rg=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
         if(resposta.data.length===0){
             alert("Colaborador não encontrado")
         }
@@ -164,6 +177,20 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
                 divColaboradores.appendChild(document.createElement('br'))
     
+
+                const elementSpanTelefone = document.createElement('span');
+                elementSpanTelefone.innerHTML=`Telefone: ${data.telefone}`
+                elementSpanTelefone.style.fontSize="calc(1.5vw + 0.5vh)"
+                divColaboradores.appendChild(elementSpanTelefone)
+    
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+    
+
+
+
                 const elementSpanRg = document.createElement('span');
                 elementSpanRg.innerHTML=`Rg: ${data.rg}`
                 elementSpanRg.style.fontSize="calc(1.5vw + 0.5vh)"
@@ -221,7 +248,7 @@ async function handleButtonPesquisar(){
     if(selectNomeRgCpf.value === "Cpf"){
 
         try{
-        const resposta = await axios.get(`http://localhost:21009/colaboradoresPorCpf?cpf=${inputPesquisaColaborador.value}`)
+        const resposta = await axios.get(`http://sergiomelobackend.com.br:21009/colaboradoresPorCpf?cpf=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
         if(resposta.data.length===0){
             alert("Colaborador não encontrado")
         }
@@ -267,6 +294,18 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
                 divColaboradores.appendChild(document.createElement('br'))
     
+
+                const elementSpanTelefone = document.createElement('span');
+                elementSpanTelefone.innerHTML=`Telefone: ${data.telefone}`
+                elementSpanTelefone.style.fontSize="calc(1.5vw + 0.5vh)"
+                divColaboradores.appendChild(elementSpanTelefone)
+    
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+                divColaboradores.appendChild(document.createElement('br'))
+
+
                 const elementSpanRg = document.createElement('span');
                 elementSpanRg.innerHTML=`Rg: ${data.rg}`
                 elementSpanRg.style.fontSize="calc(1.5vw + 0.5vh)"

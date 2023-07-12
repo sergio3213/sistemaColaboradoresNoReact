@@ -25,7 +25,7 @@ const corsOptions = {
   }
 };
 
-app.use(cors(corsOptions))
+app.use(cors())
  app.use(routerGet)
 app.use(routerPost)
 app.use(routerPut)

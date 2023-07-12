@@ -1,8 +1,9 @@
 <html>
   <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="./telaCadastroColaborador.css" />
   </head>
-  <body>
+  <body style="background-image: url('./event.png');">
     <div class="divLinks"><a href="../loginUsuarios/loginUsuarios.html"> Login</a> | <a href="../cadastrarEditarDeletar/cadastrarEditarDeletar.html">Menu Principal</a></div>
     <div class="divH1">
       <h1>Cadastro de colaborador</h1>
@@ -14,6 +15,9 @@
         <br />
 
         <input type="text" class="inputNome" placeholder="Nome completo" />
+        <br />
+        <br />
+        <input type="text" class="inputTelefone" oninput="formatarTelefone(this)" placeholder="Telefone" />
         <br />
         <br />
         <input type="text" class="inputRg" placeholder="Rg(somente números)" />

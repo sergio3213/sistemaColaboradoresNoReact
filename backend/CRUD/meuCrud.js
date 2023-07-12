@@ -2,15 +2,15 @@ const mysql = require("mysql2/promise");
 
 class meuCrud {
     conexao = async () => { return mysql.createConnection({
-      /* host: "mysql.sergiomelobackend.com.br",
+      host: "mysql.sergiomelobackend.com.br",
       user: "sergiomelo_add1", 
       password: "senhabd12", 
       database: "sergiomeloback", 
-  */
-      host: "localhost",
+ 
+      /* host: "localhosst",
       user: "root", 
       password: "$ENHAfraca12", 
-      database: "sistema_de_colaboradores",  
+      database: "sistema_de_colaboradores", */  
     });
   }
   
@@ -26,8 +26,7 @@ class meuCrud {
   async buscarUsuarioPorUsuario(usuario) {
     const esperaConexao = await this.conexao()
     const usuariosPorUsuario = await esperaConexao.execute(
-      `SELECT * FROM usuarios WHERE usuario = ?`,
-      [usuario]
+      `SELECT * FROM usuarios WHERE usuario LIKE '${usuario}%' COLLATE utf8mb4_general_ci;= `
     );
       return(usuariosPorUsuario[0])
   }
@@ -41,7 +40,7 @@ class meuCrud {
       return(usuariosPorUsuarioEsenha[0])
   }
 
-  async cadastrarColaborador(nome,rg,cpf,spjanodp,ext) {
+  async cadastrarColaborador(nome,telefone,rg,cpf,spjanodp,ext) {
     const esperaConexao = await this.conexao()
     
     const arrayUltimoId = await esperaConexao.execute('SELECT * FROM colaboradores ORDER BY id DESC LIMIT 1;');
@@ -51,7 +50,7 @@ class meuCrud {
       const ultimoId = arrayUltimoId[0][0].id
       console.log('...................',ext)
       await esperaConexao.execute(
-        `INSERT INTO colaboradores(nome,rg,cpf,spjanodp,img) VALUES('${nome}','${rg}','${cpf}','${spjanodp}','imgsyst${(ultimoId+1)+'.'+ ext}')`
+        `INSERT INTO colaboradores(nome,telefone,rg,cpf,spjanodp,img) VALUES('${nome}','${telefone}','${rg}','${cpf}','${spjanodp}','imgsyst${(ultimoId+1)+'.'+ ext}')`
       )
       console.log('...................',ext)
 

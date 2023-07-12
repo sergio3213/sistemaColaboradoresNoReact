@@ -7,13 +7,13 @@ const controllerPesquisaColaboradorPorRg = require("../controllers/pesquisaColab
 const controllerPesquisaColaboradorPorCpf = require("../controllers/controllerPesquisaColaboradorPorCpf.js")
 const controllerPesquisaUsuarioPorUsuario = require("../controllers/controllerPesquisaUsuarioPorUsuario.js")
 const middlewareLoginComumQuery = require("../middlewareLogin/middlewareLoginComumQuery.js")
-
+const middlewareLoginMasterQuery = require('../middlewareLogin/middlewareLoginMasterQuery.js')
 routerGet.get("/login", controllerLogin);
 routerGet.get("/colaboradoresPorNome", middlewareLoginComumQuery, controllerPesquisaColaboradorPorNome);
 routerGet.get("/colaboradoresPorRg",middlewareLoginComumQuery,controllerPesquisaColaboradorPorRg)
 routerGet.get("/colaboradoresPorCpf",middlewareLoginComumQuery,controllerPesquisaColaboradorPorCpf)
 
-routerGet.get("/buscarUsuarioPorUsuario",controllerPesquisaUsuarioPorUsuario)
+routerGet.get("/buscarUsuarioPorUsuario",middlewareLoginMasterQuery,controllerPesquisaUsuarioPorUsuario)
 
 
 module.exports = routerGet

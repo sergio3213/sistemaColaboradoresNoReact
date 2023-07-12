@@ -5,7 +5,7 @@
     const inputSenhaValue = document.querySelector(".inputSenhaTelaLogin").value;
     axios
       .get(
-        `http://localhost:21009/login?usuario=${inputUsuarioValue}&senha=${inputSenhaValue}`
+        `http://sergiomelobackend.com.br:21009/login?usuario=${inputUsuarioValue}&senha=${inputSenhaValue}`
       )
       .then(async (data) => {
         await localStorage.setItem("cre", data.data);
@@ -21,13 +21,13 @@
           "../cadastrarEditarDeletar/cadastrarEditarDeletar.html";
       }else if(token_decode.tipo==="0"){
         window.location.href =
-          "../consultarUsuarios/consultarUsuarios.html";
+          "../pesquisarColaboradoresUsuarioComum/pesquisarColaboradoresUsuarioComum.html";
       }{
 
       }
          
       })
       .catch((err)=>{
-        console.log(err)
+        alert(err.response.data.message)
       });
   }
