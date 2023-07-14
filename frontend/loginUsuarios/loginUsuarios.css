@@ -1,11 +1,12 @@
-.body{
-    background-image: url('./event.jpg');
+body{
+    background-color: #b69f5b;
 }
 
 .divH1Login{
     text-align: center;
     position:relative;
     top:20vh;
+    color:red
 }
 
 .divInputs{
@@ -36,4 +37,66 @@
     width:12vw;
     height:4vh;
     font-size: calc(1vw + 1vh);
+}
+
+
+@media (max-width: 1000px){
+    body{
+        background-color: #b69f5b;
+    }
+
+
+
+    .divH1Login{
+        text-align: center;
+        position:relative;
+        top:20vh;
+        font-size: 5vw;
+        color:red
+    }
+    
+    .divInputs{
+        text-align: center;
+        position:relative;
+        top:20vh;
+    }
+    
+    .inputUsuarioTelaLogin{
+        position:relative;
+        font-size:calc(2.5vw + 1.1vh);
+        top:8vh;
+        width:50vw;
+        border:0px solid black;
+        border-bottom:1px solid black;
+        background-color: #b69f5b;
+        height:3.5vh;
+    }
+    .inputUsuarioTelaLogin::placeholder {
+        color: black;
+      }
+    
+    .inputSenhaTelaLogin{
+        position:relative;
+        font-size:calc(2.5vw + 1.1vh);
+        top:15vh;
+        width:50vw;
+        border:0px solid black;
+        border-bottom:1px solid black;
+        background-color: #b69f5b;
+        height:3.5vh;
+    }
+
+    .inputSenhaTelaLogin::placeholder {
+        color: black;
+      }
+    
+    .buttonTelaLogin{
+        position:relative;
+        top:25vh;
+        width:35vw;
+        height:4vh;
+        font-size: calc(2.5vw + 1vh);
+    }
+    
+
 }

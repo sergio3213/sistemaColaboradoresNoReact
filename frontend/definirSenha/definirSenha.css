@@ -1,0 +1,47 @@
+body{
+    background-color: #b69f5b;
+}
+
+@media (max-width: 1000px){
+    body{
+        background-color: #b69f5b;
+    }    
+
+    .h1DefinirSenha{
+        font-size: 9vw;
+    }
+    .senha1{
+        font-size:calc(2vh + 1vw);
+        width:65vw;
+        height:5vh;
+        background-color:#b69f5b;
+        border:0px solid black;
+        border-bottom:1px solid black
+    }
+
+    .senha1::placeholder{
+        color:black
+    }
+
+    .senha2{
+        position:relative;
+        top:3vh;
+        width:65vw;
+        height:5vh;
+        font-size:calc(2vh + 1vw);
+        background-color:#b69f5b;
+        border:0px solid black;
+        border-bottom:1px solid black
+    }
+    .senha2::placeholder{
+        color:black
+    }
+
+    .buttonSalvar{
+        position:relative;
+        top:8vh;
+        width:30vw;
+        height:5vh;
+        font-size:6vw
+    }
+}

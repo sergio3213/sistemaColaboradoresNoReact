@@ -42,6 +42,6 @@ async function controllerCadastraUsuarios(req, res) {
   );
   
 
-  res.status(200).json(userCadastrado);
+  res.status(200).json({message:"Usuário cadastrado com sucesso!"});
 }
 module.exports = controllerCadastraUsuarios;

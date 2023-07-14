@@ -3,15 +3,17 @@ function requisicaoAxiosCadastroDeUsuarios() {
     const inputUsuario = document.querySelector('.inputUsuarioCadastroUsuario').value
     const inputSenha = document.querySelector('.inputSenhaCadastroUsuario').value
     const inputTipo = document.querySelector('.SelectTipoCadastroUsuario').value
-    console.log('teste')
-    axios.post('http://sergiomelobackend.com.br:21009/cadastrarUsuario',
-    {   token:localStorage.getItem('cre'),
+    axios.post('http://localhost:21009/cadastrarUsuario',
+    {   token: localStorage.getItem('cre'),
         usuario:inputUsuario,
         senha:inputSenha,
         tipo:inputTipo
+    },
+    {
+      timeout: 15000 // Tempo de resposta limite em milissegundos
     })
     .then((data)=>{
-      alert("Usuário cadastrado com sucesso!")
+      alert(data.data.message)
     })
     .catch((err)=>{
         alert(err.response.data.message)

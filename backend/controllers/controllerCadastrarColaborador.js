@@ -5,9 +5,9 @@
   async function controllerCadastrarColaborador(req, res) {
       const regexNome = /^(?=[^'"]{1,80}$)[A-Za-zÀ-ÿ]+(?:\s[A-Za-zÀ-ÿ]+)+$/
       const regexTelefone = /^\+\d{2} \(\d{2}\) \d{5}-\d{4}$/
-      const regexRg = /^(?!.*['"])[A-Za-z0-9]{8,10}$/
-      const regexCpf = /^(?!.*['"])[0-9]{11}$/
-      const regexSpjAnoDp = /^[a-zA-Z0-9/_-]{7,24}$/
+      const regexRg = /^(?!.*['"])[A-Za-z0-9]{0,10}$/
+      const regexCpf = /^(?!.*['"])[0-9]{0,11}$/
+      const regexSpjAnoDp = /^[a-zA-Z0-9/_-]{10,14}$/
 
       
       if(req.file === undefined){
@@ -39,7 +39,7 @@
 
       if(!regexSpjAnoDp.test(req.body.spjAnoDp)){
         return res.status(400).json({
-          message: "Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 24 dígitos!)"
+          message: "Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 14 dígitos!)"
         })
       }
       

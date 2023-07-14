@@ -36,7 +36,7 @@ function handleButtonCadastrar(event) {
   const maxSizeInBytes = 500 * 1024; // 500 KB
 
   if (file && file.size > maxSizeInBytes) {
-    alert(file.size);
+    alert("O tamanho da imagem não pode ultrapassar 500kb");
     fotoInput.value = ''; // Limpa o campo de input file
   }
 
@@ -62,7 +62,7 @@ function handleButtonCadastrar(event) {
 
 
   axios
-    .post("http://sergiomelobackend.com.br:21009/cadastrarColaborador", formData)
+    .post("http://localhost:21009/cadastrarColaborador", formData)
     .then(function (response) {
       alert(response.data.message);
       location.reload();

@@ -1,0 +1,31 @@
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./definirSenha.css">
+    </head>
+
+    <body>
+        <div style="text-align: center;position:relative;top:25vh;">
+            <h1 class="h1DefinirSenha">Definir senha</h1>
+        </div>
+
+        <div style="text-align: center;position:relative; top:28vh;">
+            <input type="password" class="senha1" placeholder="Digíte a nova senha...">
+            <br>
+            <br>
+            <br>
+            <input type="password" class="senha2" placeholder="Digíte novamente a senha...">
+            <br>
+            <br>
+            
+            <button class="buttonSalvar" onclick="handleButtonSalvarSenha()">Salvar</button>
+        </div>
+        <script src="../jwt-decode.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="./definirSenha.js"></script>
+        
+    </body>
+
+
+</html>

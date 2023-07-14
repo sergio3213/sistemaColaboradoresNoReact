@@ -1,3 +1,6 @@
+body{
+    background-color: #b69f5b;
+}
 .divH2CadEditDelet{
     text-align: center;
     position:relative;
@@ -5,45 +8,43 @@
 }
 
 .LinkUsuarioCadastraEditaDeleta{
-    font-size: calc(1.5vw + 1vh);
+    font-size: calc(1vw + 1vh);
     position:relative;
     left:5vw;
-    
-    color:black;
-    
 }
-    
-    
-
 
 .spanUsuarioCadastraEditaDeleta{
     position:relative;
     font-size:calc(1vw + 1vh);
-    font-family: Helvetica, sans-serif;
-    color:black;
-    text-decoration: underline;
     float:right;
     right:3vw;
-    font-weight: bold;
 }
 
-.linkCadastrarUsuarios{
-   color:black;
-   font-size:1.25vw;
-}
-
-.linkEditarUsuarios{
-   color:black;
-   font-size:1.25vw;
-   
-}
-
-.linkCadastrarColaborador{
-    color:black;
-    font-size:1.25vw;
-}
-
-.linkEditarColaborador{
-    color:black;
-    font-size:1.25vw;
+@media (max-width: 1000px){
+    body{
+        background-color: #b69f5b;
+    }
+    .divH2CadEditDelet{
+        text-align: center;
+        position:relative;
+        top:20vh;
+        font-size: 3vw;
+    }
+    
+    .LinkUsuarioCadastraEditaDeleta{
+        position:relative;
+        top:2vh;
+        font-size: calc(3vw + 1vh);
+        position:relative;
+        left:5vw;
+        
+    }
+    
+    .spanUsuarioCadastraEditaDeleta{
+        position:relative;
+        font-size:calc(1vw + 1vh);
+        float:right;
+        right:3vw;
+    }
+        
 }

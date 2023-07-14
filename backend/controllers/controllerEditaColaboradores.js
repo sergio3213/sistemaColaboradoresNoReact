@@ -4,9 +4,9 @@ async function controllerEditaColaboradores(req, res) {
   const crud = new meuCrud();
 
   const regexNome = /^(?=[^'"]{1,80}$)[A-Za-zÀ-ÿ]+(?:\s[A-Za-zÀ-ÿ]+)+$/;
-  const regexRg = /^(?!.*['"])[A-Za-z0-9]{8,10}$/;
-  const regexCpf = /^(?!.*['"])[0-9]{11}$/;
-  const regexSpjAnoDp =/^[a-zA-Z0-9_/-]+$/;
+  const regexRg = /^(?!.*['"])[A-Za-z0-9]{0,10}$/;
+  const regexCpf = /^(?!.*['"])[0-9]{0,11}$/;
+  const regexSpjAnoDp =/^[a-zA-Z0-9_/-]{10,14}$/;
 
   if (req.file === undefined) {
     try {
@@ -22,7 +22,7 @@ async function controllerEditaColaboradores(req, res) {
         return res.status(400).json({message:"Cpf inválido(Digite apenas números, 11 dígitos!)"})
       }
       if (!regexSpjAnoDp.test(req.body.spjanodp)) {
-        return res.status(400).json({message:"Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 24 dígitos!)"})
+        return res.status(400).json({message:"Campo Spj/Ano/Dp inválido(Digite apenas letras ,números e '/', no mínimo 10 dígitos e no máximo 14 dígitos!)"})
       }
 
       const result = await crud.editaColaboradorSemImagem(

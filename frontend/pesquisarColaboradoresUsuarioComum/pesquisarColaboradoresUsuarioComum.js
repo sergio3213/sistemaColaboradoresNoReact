@@ -10,7 +10,7 @@ async function handleButtonPesquisar(){
     divColaboradores.innerHTML=''
     if(selectNomeRgCpf.value === "Nome"){
         try{
-        const resposta = await axios.get(`http://sergiomelobackend.com.br:21009/colaboradoresPorNome?nome=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
+        const resposta = await axios.get(`http://localhost:21009/colaboradoresPorNome?nome=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
         
         if(resposta.data.length===0){
             alert("Colaborador não encontrado")
@@ -131,7 +131,7 @@ async function handleButtonPesquisar(){
 
 
         try{
-        const resposta = await axios.get(`http://sergiomelobackend.com.br:21009/colaboradoresPorRg?rg=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
+        const resposta = await axios.get(`http://localhost:21009/colaboradoresPorRg?rg=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
         if(resposta.data.length===0){
             alert("Colaborador não encontrado")
         }
@@ -248,7 +248,7 @@ async function handleButtonPesquisar(){
     if(selectNomeRgCpf.value === "Cpf"){
 
         try{
-        const resposta = await axios.get(`http://sergiomelobackend.com.br:21009/colaboradoresPorCpf?cpf=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
+        const resposta = await axios.get(`http://localhost:21009/colaboradoresPorCpf?cpf=${inputPesquisaColaborador.value}&token=${localStorage.getItem('cre')}`)
         if(resposta.data.length===0){
             alert("Colaborador não encontrado")
         }

@@ -5,8 +5,8 @@ class meuCrud {
       /* host: "mysql.sergiomelobackend.com.br",
       user: "sergiomelo_add1", 
       password: "senhabd12", 
-      database: "sergiomeloback", 
-  */
+      database: "sergiomeloback",  */
+
       host: "localhost",
       user: "root", 
       password: "$ENHAfraca12", 
@@ -134,6 +134,12 @@ class meuCrud {
     const esperaConexao = await this.conexao();
     const usuarios = await esperaConexao.execute(`SELECT * FROM usuarios WHERE usuario = '${usuario}' AND id != ${id};`);
     return usuarios[0]
+  }
+
+  async definirSenhaUsuarioComum(senha,id){
+    const esperaConexao = await this.conexao();
+    const usuarioEditado = await esperaConexao.execute(`UPDATE usuarios SET senha = '${senha}',primeiroLogin = '1' WHERE id = ${id}`);
+
   }
 }
 
