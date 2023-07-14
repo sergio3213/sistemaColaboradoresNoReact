@@ -229,41 +229,11 @@ async function handleButtonPesquisar() {
             elementButtonDeletar.style.position = "relative";
             elementButtonDeletar.style.top = "25vh";
             divColaboradores.appendChild(elementButtonDeletar);
-
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-
-            divColaboradores.appendChild(document.createElement("br"));
+            
+            const divFinal = document.createElement('div')
+            divFinal.style.height="50vh";
+            divFinal.classList.add(`divFinal`);
+            divColaboradores.appendChild(divFinal)
           });
         })
         .catch((err) => alert(err.response.data.message));
@@ -289,12 +259,14 @@ async function handleButtonPesquisar() {
           const colaboradoresMap = data.data.map((data, index) => {
             const elementTitulo = document.createElement("h3");
             elementTitulo.type = "text";
+            elementTitulo.classList.add("elementTitulo");
             elementTitulo.innerText = data.nome;
             divColaboradores.appendChild(elementTitulo);
 
             divColaboradores.appendChild(document.createElement("br"));
 
             const elementImagem = document.createElement("img");
+            elementImagem.classList.add("elementImagem");
             function toBase64(arr) {
               arr = new Uint8Array(arr);
               return btoa(
@@ -333,6 +305,7 @@ async function handleButtonPesquisar() {
 
             const elementNome = document.createElement("input");
             elementNome.type = "text";
+            elementNome.classList.add(`elementNome`);
             elementNome.value = data.nome;
             elementNome.style.position = "relative";
             elementNome.style.top = "8vh";
@@ -343,6 +316,7 @@ async function handleButtonPesquisar() {
 
             const elementTelefone = document.createElement("input");
             elementTelefone.type = "text";
+            elementTelefone.classList.add(`elementTelefone`);
             elementTelefone.value = data.telefone;
             elementTelefone.style.position = "relative";
             elementTelefone.style.top = "8vh";
@@ -352,6 +326,7 @@ async function handleButtonPesquisar() {
 
             const elementRg = document.createElement("input");
             elementRg.type = "text";
+            elementRg.classList.add(`elementRg`)
             elementRg.value = data.rg;
             elementRg.style.position = "relative";
             elementRg.style.top = "11vh";
@@ -361,6 +336,7 @@ async function handleButtonPesquisar() {
 
             const elementCpf = document.createElement("input");
             elementCpf.type = "text";
+            elementCpf.classList.add(`elementCpf`);
             elementCpf.value = data.cpf;
             elementCpf.style.position = "relative";
             elementCpf.style.top = "15vh";
@@ -370,6 +346,7 @@ async function handleButtonPesquisar() {
 
             const elementspjanodp = document.createElement("input");
             elementspjanodp.type = "text";
+            elementspjanodp.classList.add(`elementSpjAnoDp`);
             elementspjanodp.value = data.spjanodp;
             elementspjanodp.style.position = "relative";
             elementspjanodp.style.top = "18vh";
@@ -380,6 +357,7 @@ async function handleButtonPesquisar() {
 
             const elementButtonSalvar = document.createElement("button");
             elementButtonSalvar.innerText = "Salvar";
+            elementButtonSalvar.classList.add(`elementButtonSalvar`);
             elementButtonSalvar.onclick = handleButonSalvar;
             elementButtonSalvar.style.position = "relative";
             elementButtonSalvar.style.top = "25vh";
@@ -473,25 +451,16 @@ async function handleButtonPesquisar() {
 
             const elementButtonDeletar = document.createElement("button");
             elementButtonDeletar.innerText = "Deletar";
+            elementButtonDeletar.classList.add(`elementButtonDeletar`);
             elementButtonDeletar.style.position = "relative";
             elementButtonDeletar.style.top = "25vh";
             elementButtonDeletar.onclick = handleButtonDeletar;
             divColaboradores.appendChild(elementButtonDeletar);
 
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-
-            divColaboradores.appendChild(document.createElement("br"));
+            const divFinal = document.createElement('div')
+            divFinal.style.height="50vh";
+            divFinal.classList.add(`divFinal`);
+            divColaboradores.appendChild(divFinal)
           });
         })
         .catch((err) => {
@@ -519,12 +488,14 @@ async function handleButtonPesquisar() {
           const colaboradoresMap = data.data.map((data, index) => {
             const elementTitulo = document.createElement("h3");
             elementTitulo.type = "text";
+            elementTitulo.classList.add("elementTitulo");
             elementTitulo.innerText = data.nome;
             divColaboradores.appendChild(elementTitulo);
 
             divColaboradores.appendChild(document.createElement("br"));
 
             const elementImagem = document.createElement("img");
+            elementImagem.classList.add("elementImagem");
             function toBase64(arr) {
               arr = new Uint8Array(arr);
               return btoa(
@@ -563,6 +534,7 @@ async function handleButtonPesquisar() {
 
             const elementNome = document.createElement("input");
             elementNome.type = "text";
+            elementNome.classList.add(`elementNome`);
             elementNome.value = data.nome;
             elementNome.style.position = "relative";
             elementNome.style.top = "8vh";
@@ -573,6 +545,7 @@ async function handleButtonPesquisar() {
 
             const elementTelefone = document.createElement("input");
             elementTelefone.type = "text";
+            elementTelefone.classList.add(`elementTelefone`);
             elementTelefone.value = data.telefone;
             elementTelefone.style.position = "relative";
             elementTelefone.style.top = "8vh";
@@ -582,6 +555,7 @@ async function handleButtonPesquisar() {
 
             const elementRg = document.createElement("input");
             elementRg.type = "text";
+            elementRg.classList.add(`elementRg`)
             elementRg.value = data.rg;
             elementRg.style.position = "relative";
             elementRg.style.top = "11vh";
@@ -591,6 +565,7 @@ async function handleButtonPesquisar() {
 
             const elementCpf = document.createElement("input");
             elementCpf.type = "text";
+            elementCpf.classList.add(`elementCpf`);
             elementCpf.value = data.cpf;
             elementCpf.style.position = "relative";
             elementCpf.style.top = "15vh";
@@ -600,6 +575,7 @@ async function handleButtonPesquisar() {
 
             const elementspjanodp = document.createElement("input");
             elementspjanodp.type = "text";
+            elementspjanodp.classList.add(`elementSpjAnoDp`);
             elementspjanodp.value = data.spjanodp;
             elementspjanodp.style.position = "relative";
             elementspjanodp.style.top = "18vh";
@@ -610,6 +586,7 @@ async function handleButtonPesquisar() {
 
             const elementButtonSalvar = document.createElement("button");
             elementButtonSalvar.innerText = "Salvar";
+            elementButtonSalvar.classList.add(`elementButtonSalvar`);
             elementButtonSalvar.onclick = handleButonSalvar;
             elementButtonSalvar.style.position = "relative";
             elementButtonSalvar.style.top = "25vh";
@@ -703,26 +680,17 @@ async function handleButtonPesquisar() {
 
             const elementButtonDeletar = document.createElement("button");
             elementButtonDeletar.innerText = "Deletar";
+            elementButtonDeletar.classList.add(`elementButtonDeletar`);
             elementButtonDeletar.onclick = handleButtonDeletar;
             elementButtonDeletar.style.position = "relative";
             elementButtonDeletar.style.top = "25vh";
 
             divColaboradores.appendChild(elementButtonDeletar);
 
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-            divColaboradores.appendChild(document.createElement("br"));
-
-            divColaboradores.appendChild(document.createElement("br"));
+            const divFinal = document.createElement('div')
+            divFinal.style.height="50vh";
+            divFinal.classList.add(`divFinal`);
+            divColaboradores.appendChild(divFinal)
           });
         })
         .catch((err) => {
