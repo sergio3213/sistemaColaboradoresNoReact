@@ -12,10 +12,13 @@ async function handleButtonPesquisar() {
 
     resposta.data.map((data) => {
       const elementH1Nome = document.createElement("h2");
+      elementH1Nome.classList.add("elementH1Nome")
       elementH1Nome.innerHTML = data.usuario.toUpperCase();
       divElementsUsuarios.appendChild(elementH1Nome);
 
       const elementNome = document.createElement("input");
+      elementNome.classList.add("elementNome")
+
       elementNome.value = data.usuario;
       elementNome.setAttribute("autocomplete", "off");
       divElementsUsuarios.appendChild(elementNome);
@@ -25,6 +28,8 @@ async function handleButtonPesquisar() {
 
       const elementSenha = document.createElement("input");
       elementSenha.type = "password";
+      elementSenha.classList.add("elementSenha")
+
       elementSenha.setAttribute("autocomplete", "off");
       elementSenha.placeholder = "Digíte a nova senha..."
       divElementsUsuarios.appendChild(elementSenha);
@@ -33,7 +38,7 @@ async function handleButtonPesquisar() {
       divElementsUsuarios.appendChild(document.createElement("br"));
 
       const selectTipo = document.createElement("select");
-
+      selectTipo.classList.add('selectTipo')
       if (data.tipo === "1") {
         selectTipo.value = "1";
       } else {
@@ -78,14 +83,20 @@ async function handleButtonPesquisar() {
         }
       }
       const inputButton = document.createElement("input");
+      inputButton.classList.add('inputButton')
       inputButton.type = "button";
       inputButton.value = "salvar";
       inputButton.onclick = handleInputSalvar;
       divElementsUsuarios.appendChild(inputButton);
-
-      divElementsUsuarios.appendChild(document.createElement("br"));
-      divElementsUsuarios.appendChild(document.createElement("br"));
+      divElementsUsuarios.appendChild(document.createElement("br"))
+      const penultimaDiv = document.createElement("div");
+      penultimaDiv.style.height="20vh";
+      divElementsUsuarios.appendChild(penultimaDiv)
       divElementsUsuarios.appendChild(document.createElement("hr"));
+      const divFinal = document.createElement('div');
+      divFinal.style.height="10vh";
+      divElementsUsuarios.appendChild(divFinal)
+      
     });
   } catch (err) {
     alert(err.response.data.message);
