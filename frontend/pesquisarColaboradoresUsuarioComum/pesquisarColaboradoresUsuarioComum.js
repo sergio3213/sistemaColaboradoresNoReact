@@ -20,10 +20,12 @@ async function handleButtonPesquisar(){
             divColaboradores.appendChild(document.createElement('br'))
             divColaboradores.appendChild(document.createElement('br'))
             const elementH1 = document.createElement('h2')
+            elementH1.classList.add('elementH1')
             elementH1.innerHTML = data.nome
             divColaboradores.appendChild(elementH1)
     
             const elementImagem = document.createElement('img');
+            elementImagem.classList.add('elementImagem')
                 function toBase64(arr) {
                   arr = new Uint8Array(arr)
                   return btoa(
@@ -48,6 +50,7 @@ async function handleButtonPesquisar(){
                 
     
                 const elementSpanNome = document.createElement('span');
+                elementSpanNome.classList.add('elementSpanNome')
                 elementSpanNome.innerHTML=`Nome: ${data.nome}`
                 elementSpanNome.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanNome)
@@ -59,6 +62,7 @@ async function handleButtonPesquisar(){
 
                 
                 const elementSpanTelefone = document.createElement('span');
+                elementSpanTelefone.classList.add("elementSpanTelefone")
                 elementSpanTelefone.innerHTML=`Telefone: ${data.telefone}`
                 elementSpanTelefone.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanTelefone)
@@ -71,6 +75,7 @@ async function handleButtonPesquisar(){
 
 
                 const elementSpanRg = document.createElement('span');
+                elementSpanRg.classList.add("elementSpanRg")
                 elementSpanRg.innerHTML=`Rg: ${data.rg}`
                 elementSpanRg.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanRg)
@@ -81,6 +86,7 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
     
                 const elementSpanCpf = document.createElement('span');
+                elementSpanCpf.classList.add("elementSpanCpf")
                 elementSpanCpf.innerHTML=`Cpf: ${data.cpf}`
                 elementSpanCpf.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanCpf)
@@ -91,7 +97,8 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
     
                 const elementSpanSpjAnoDp = document.createElement('span');
-                elementSpanSpjAnoDp.innerHTML=`Nome: ${data.spjanodp}`
+                elementSpanSpjAnoDp.classList.add("elementSpanSpjAnoDp")
+                elementSpanSpjAnoDp.innerHTML=`SpjAnoDp: ${data.spjanodp}`
                 elementSpanSpjAnoDp.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanSpjAnoDp)
     
@@ -140,10 +147,12 @@ async function handleButtonPesquisar(){
             divColaboradores.appendChild(document.createElement('br'))
             divColaboradores.appendChild(document.createElement('br'))
             const elementH1 = document.createElement('h2')
+            elementH1.classList.add('elementH1')
             elementH1.innerHTML = data.nome
             divColaboradores.appendChild(elementH1)
     
             const elementImagem = document.createElement('img');
+            elementImagem.classList.add('elementImagem')
                 function toBase64(arr) {
                   arr = new Uint8Array(arr)
                   return btoa(
@@ -168,6 +177,7 @@ async function handleButtonPesquisar(){
                 
     
                 const elementSpanNome = document.createElement('span');
+                elementSpanNome.classList.add('elementSpanNome')
                 elementSpanNome.innerHTML=`Nome: ${data.nome}`
                 elementSpanNome.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanNome)
@@ -179,6 +189,7 @@ async function handleButtonPesquisar(){
     
 
                 const elementSpanTelefone = document.createElement('span');
+                elementSpanTelefone.classList.add("elementSpanTelefone")
                 elementSpanTelefone.innerHTML=`Telefone: ${data.telefone}`
                 elementSpanTelefone.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanTelefone)
@@ -192,6 +203,7 @@ async function handleButtonPesquisar(){
 
 
                 const elementSpanRg = document.createElement('span');
+                elementSpanRg.classList.add("elementSpanRg")
                 elementSpanRg.innerHTML=`Rg: ${data.rg}`
                 elementSpanRg.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanRg)
@@ -202,6 +214,7 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
     
                 const elementSpanCpf = document.createElement('span');
+                elementSpanCpf.classList.add("elementSpanCpf")
                 elementSpanCpf.innerHTML=`Cpf: ${data.cpf}`
                 elementSpanCpf.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanCpf)
@@ -212,7 +225,8 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
     
                 const elementSpanSpjAnoDp = document.createElement('span');
-                elementSpanSpjAnoDp.innerHTML=`Nome: ${data.spjanodp}`
+                elementSpanSpjAnoDp.classList.add("elementSpanSpjAnoDp")
+                elementSpanSpjAnoDp.innerHTML=`SpjAnoDp: ${data.spjanodp}`
                 elementSpanSpjAnoDp.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanSpjAnoDp)
     
@@ -257,10 +271,12 @@ async function handleButtonPesquisar(){
             divColaboradores.appendChild(document.createElement('br'))
             divColaboradores.appendChild(document.createElement('br'))
             const elementH1 = document.createElement('h2')
+            elementH1.classList.add('elementH1')
             elementH1.innerHTML = data.nome
             divColaboradores.appendChild(elementH1)
     
             const elementImagem = document.createElement('img');
+            elementImagem.classList.add('elementImagem')
                 function toBase64(arr) {
                   arr = new Uint8Array(arr)
                   return btoa(
@@ -285,6 +301,7 @@ async function handleButtonPesquisar(){
                 
     
                 const elementSpanNome = document.createElement('span');
+                elementSpanNome.classList.add('elementSpanNome')
                 elementSpanNome.innerHTML=`Nome: ${data.nome}`
                 elementSpanNome.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanNome)
@@ -296,6 +313,7 @@ async function handleButtonPesquisar(){
     
 
                 const elementSpanTelefone = document.createElement('span');
+                elementSpanTelefone.classList.add("elementSpanTelefone")
                 elementSpanTelefone.innerHTML=`Telefone: ${data.telefone}`
                 elementSpanTelefone.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanTelefone)
@@ -307,6 +325,7 @@ async function handleButtonPesquisar(){
 
 
                 const elementSpanRg = document.createElement('span');
+                elementSpanRg.classList.add("elementSpanRg")
                 elementSpanRg.innerHTML=`Rg: ${data.rg}`
                 elementSpanRg.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanRg)
@@ -317,6 +336,7 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
     
                 const elementSpanCpf = document.createElement('span');
+                elementSpanCpf.classList.add("elementSpanCpf")
                 elementSpanCpf.innerHTML=`Cpf: ${data.cpf}`
                 elementSpanCpf.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanCpf)
@@ -327,7 +347,8 @@ async function handleButtonPesquisar(){
                 divColaboradores.appendChild(document.createElement('br'))
     
                 const elementSpanSpjAnoDp = document.createElement('span');
-                elementSpanSpjAnoDp.innerHTML=`Nome: ${data.spjanodp}`
+                elementSpanSpjAnoDp.classList.add("elementSpanSpjAnoDp")
+                elementSpanSpjAnoDp.innerHTML=`SpjAnoDp: ${data.spjanodp}`
                 elementSpanSpjAnoDp.style.fontSize="calc(1.5vw + 0.5vh)"
                 divColaboradores.appendChild(elementSpanSpjAnoDp)
     
