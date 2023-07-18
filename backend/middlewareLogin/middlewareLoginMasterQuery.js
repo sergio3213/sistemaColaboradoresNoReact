@@ -9,9 +9,11 @@ async function middlewareLoginMasterQuery(req,res,next){
         if (err) {
             return res.status(400).json({message:'Você precisa estar logado como usuário master para realizar essa operação!'});
         } else {
-           const arrayUsuario = await crud.buscarUsuarioPorUsuarioEsenha(decoded.usuario,decoded.senha)
+            console.log(decoded)
+           const arrayUsuario = await crud.buscarUsuarioPorUsuarioExact(decoded.usuario)
+           console.log(arrayUsuario[0])
            if (arrayUsuario.length!==0){
-            if(arrayUsuario[0].tipo==='1'){
+            if(arrayUsuario[0][0].tipo==='1'){
                 console.log("logado!")
                 next()
             }else{

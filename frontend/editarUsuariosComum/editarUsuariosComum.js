@@ -2,22 +2,24 @@ async function handleButtonPesquisar() {
   const inputPesquisa = document.querySelector(".inputPesquisUsuarios").value;
   const divElementsUsuarios = document.querySelector(".divElementsUsuarios");
   try {
-    divElementsUsuarios.innerHTML=''
+    divElementsUsuarios.innerHTML = "";
     const resposta = await axios.get(
-      `http://localhost:21009/buscarUsuarioPorUsuario?usuario=${inputPesquisa}&token=${localStorage.getItem('cre')}`
+      `http://localhost:21009/buscarUsuarioPorUsuario?usuario=${inputPesquisa}&token=${localStorage.getItem(
+        "cre"
+      )}`
     );
-    if(resposta.data.length===0){
-      alert("Não existe usuário com esse nome!")
-    };
+    if (resposta.data.length === 0) {
+      alert("Não existe usuário com esse nome!");
+    }
 
     resposta.data.map((data) => {
       const elementH1Nome = document.createElement("h2");
-      elementH1Nome.classList.add("elementH1Nome")
+      elementH1Nome.classList.add("elementH1Nome");
       elementH1Nome.innerHTML = data.usuario.toUpperCase();
       divElementsUsuarios.appendChild(elementH1Nome);
 
       const elementNome = document.createElement("input");
-      elementNome.classList.add("elementNome")
+      elementNome.classList.add("elementNome");
 
       elementNome.value = data.usuario;
       elementNome.setAttribute("autocomplete", "off");
@@ -28,17 +30,17 @@ async function handleButtonPesquisar() {
 
       const elementSenha = document.createElement("input");
       elementSenha.type = "password";
-      elementSenha.classList.add("elementSenha")
+      elementSenha.classList.add("elementSenha");
 
       elementSenha.setAttribute("autocomplete", "off");
-      elementSenha.placeholder = "Digíte a nova senha..."
+      elementSenha.placeholder = "Digíte a nova senha...";
       divElementsUsuarios.appendChild(elementSenha);
-    
+
       divElementsUsuarios.appendChild(document.createElement("br"));
       divElementsUsuarios.appendChild(document.createElement("br"));
 
       const selectTipo = document.createElement("select");
-      selectTipo.classList.add('selectTipo')
+      selectTipo.classList.add("selectTipo");
       if (data.tipo === "1") {
         selectTipo.value = "1";
       } else {
@@ -75,7 +77,11 @@ async function handleButtonPesquisar() {
       async function handleInputSalvar() {
         try {
           const resposta = await axios.put(
-            `http://localhost:21009/editaUsuario?id=${data.id}&usuario=${elementNome.value}&senha=${elementSenha.value}&tipo=${selectTipo.value}&token=${localStorage.getItem('cre')}`
+            `http://localhost:21009/editaUsuario?id=${data.id}&usuario=${
+              elementNome.value
+            }&senha=${elementSenha.value}&tipo=${
+              selectTipo.value
+            }&token=${localStorage.getItem("cre")}`
           );
           alert(resposta.data.message);
         } catch (err) {
@@ -83,20 +89,43 @@ async function handleButtonPesquisar() {
         }
       }
       const inputButton = document.createElement("input");
-      inputButton.classList.add('inputButton')
+      inputButton.classList.add("inputButton");
       inputButton.type = "button";
       inputButton.value = "salvar";
       inputButton.onclick = handleInputSalvar;
       divElementsUsuarios.appendChild(inputButton);
-      divElementsUsuarios.appendChild(document.createElement("br"))
+
+      async function handleButtonDeletar() {
+        var caixaConfirmacao = window.confirm(
+          "Você tem certeza que deseja deletar o Usuário?"
+        );
+        if (caixaConfirmacao) {
+          try {
+            const resposta = await axios.delete(
+              `http://localhost:21009/deletaUsuario?token=${localStorage.getItem(
+                "cre"
+              )}&id=${data.id}`
+            );
+            alert(resposta.data.message);
+          } catch (err) {
+            console.log(err.response.data.message);
+          }
+        }
+      }
+      const inputButtonDeletar = document.createElement("button");
+      inputButtonDeletar.innerHTML = "Deletar";
+      inputButtonDeletar.classList.add("buttonDeletar")
+      inputButtonDeletar.onclick = handleButtonDeletar;
+      divElementsUsuarios.appendChild(inputButtonDeletar);
+
+      divElementsUsuarios.appendChild(document.createElement("br"));
       const penultimaDiv = document.createElement("div");
-      penultimaDiv.style.height="20vh";
-      divElementsUsuarios.appendChild(penultimaDiv)
+      penultimaDiv.style.height = "20vh";
+      divElementsUsuarios.appendChild(penultimaDiv);
       divElementsUsuarios.appendChild(document.createElement("hr"));
-      const divFinal = document.createElement('div');
-      divFinal.style.height="10vh";
-      divElementsUsuarios.appendChild(divFinal)
-      
+      const divFinal = document.createElement("div");
+      divFinal.style.height = "10vh";
+      divElementsUsuarios.appendChild(divFinal);
     });
   } catch (err) {
     alert(err.response.data.message);

@@ -8,7 +8,7 @@ async function middlewareLoginComumQuery(req,res,next){
         if (err) {
             return res.status(400).json({message:'Você precisa estar logado para realizar essa operação!'});
         } else {
-           const arrayUsuario = await crud.buscarUsuarioPorUsuarioEsenha(decoded.usuario,decoded.senha)
+           const arrayUsuario = await crud.buscarUsuarioPorUsuarioExact(decoded.usuario)
            if (arrayUsuario.length!==0){
             next()
            }else{

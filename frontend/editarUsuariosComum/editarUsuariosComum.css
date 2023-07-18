@@ -122,4 +122,13 @@ body {
     height:3.4vh;
     font-size:5vw;
   }
+
+  .buttonDeletar{
+    position:relative;
+    top:14vh;
+    left:4vw;
+    width:20vw;
+    height:3.4vh;
+    font-size:5vw;
+  }
 }

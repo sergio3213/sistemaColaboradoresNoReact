@@ -6,11 +6,11 @@ class meuCrud {
       user: "sergiomelo_add1", 
       password: "senhabd12", 
       database: "sergiomeloback",  */
-
-      host: "localhost",
+      
+     host: "localhost",
       user: "root", 
       password: "$ENHAfraca12", 
-      database: "sistema_de_colaboradores",  
+      database: "sistema_de_colaboradores" 
     });
   }
   
@@ -140,6 +140,17 @@ class meuCrud {
     const esperaConexao = await this.conexao();
     const usuarioEditado = await esperaConexao.execute(`UPDATE usuarios SET senha = '${senha}',primeiroLogin = '1' WHERE id = ${id}`);
 
+  }
+
+  async deletaUsuario(id){
+    const esperaConexao = await this.conexao();
+    const usuarioDeletado = await esperaConexao.execute(`DELETE FROM usuarios WHERE id = ${id}`)
+    return usuarioDeletado
+  }
+
+  async buscarUsuarioPorUsuarioExact(usuario){
+    const esperaConexao = await this.conexao();
+    return await esperaConexao.execute(`SELECT * FROM usuarios WHERE usuario = '${usuario}'`)
   }
 }
 
